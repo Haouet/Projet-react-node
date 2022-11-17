@@ -106,6 +106,18 @@ exports.getProductByCatName = async(req,res,next) =>{
 //       });
 
 }
+exports.getProductByTitle=  async(req, res, next) => {
+
+  const foundTitle = await Product.findOne({ title: req.params.title });
+  await Product.find({ foundTitle: foundTitle.Title })
+  .then(data => {
+         return res.status(201).json({ success: true, msg: 'Successful created new Product', data:data });  //creation successfull
+       }).catch(err => {
+         return res.status(403).json({ err: err });
+       });
+
+
+}
 exports.getProductId= (req, res, next) => {
   req.query.populate === "category"
     ? Product.findById(req.params.id)

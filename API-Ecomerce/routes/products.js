@@ -8,6 +8,7 @@ router.get('/:id',productCtl.getProductId);
 router.get('/paginate',productCtl.getAllProductsPagination);
 /* Get comment  member listing. */
 router.get('/cat/:id', productCtl.getProductByCat);
+router.get('/:title', productCtl.getProductByTitle);
 router.get('/category/:name', productCtl.getProductByCatName);
 // :5000/product/add */
  router.post('/add',productCtl.addproduct);

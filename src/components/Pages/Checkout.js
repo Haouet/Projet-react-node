@@ -17,6 +17,7 @@ export default function Checkout() {
     // const [state, setState] = useState('');
     // const [zip, setZip] = useState('');
     const [phone, setPhone] = useState('');
+    const [compte, setCompte] = useState('');
     const [notes, setNotes] = useState('');
     const [message, setMessage] = useState('');  
     const [payment, setPayment] = useState('');
@@ -190,8 +191,12 @@ export default function Checkout() {
                                 <div className="checkout__input__checkbox">
                                     <label for="acc-or">
                                         Create an account?
-                                        <input type="checkbox" id="acc-or" />
-                                        <span className="checkmark" />
+                                        <input type="checkbox" id="acc-or"  onChange={(e) => {
+                                            var value = e.target.value;
+                                            console.log("True " + value);
+                                    setCompte(e.target.value)
+                                }} />
+                                        <span className="checkmark"  />
                                     </label>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
