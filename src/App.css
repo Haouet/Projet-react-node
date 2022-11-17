@@ -1,0 +1,10 @@
+.hero__item set-bg {
+    background-image: './img/banner.jpg';
+}
+a {
+    color: #FFF;
+    text-decoration: none;
+}
+.primary-btn {
+   border: 0px;
+}

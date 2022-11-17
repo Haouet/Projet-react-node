@@ -1,0 +1,34 @@
+.header__cart ul {
+    display: inline-block;
+    margin-right: 25px;
+}
+.header__cart ul li {
+    list-style: none;
+    display: inline-block;
+
+}
+.header__cart .header__cart__price {
+    font-size: 14px;
+    color: #6f6f6f;
+    display: inline-block;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+}
+li {
+    text-align: -webkit-match-parent;
+}
+.hero {
+    padding-bottom: 50px;
+}
+.header__menu ul li a {
+    font-size: 14px;
+    color: #252525;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.navbar-nav ul li.active a {
+    color: #7fad39;
+}

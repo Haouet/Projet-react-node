@@ -1,0 +1,42 @@
+.hero__categories__all {
+    background: #7fad39;
+    position: relative;
+    padding: 10px 25px 10px 40px;
+    cursor: pointer;
+}
+.hero__categories__all span {
+    font-size: 18px;
+    margin-left: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+::after, ::before {
+    box-sizing: border-box;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    list-style-type: none;
+     text-decoration: none;
+  
+   
+}
+.hero__categories {
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+.hero__categories ul {
+    border: 1px solid #ebebeb;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
