@@ -16,7 +16,7 @@ export default function Footer() {
                     <div className="col-lg-3 col-md-6 col-sm-6">
                         <div className="footer__about">
                             <div className="footer__about__logo">
-                                <Link to={`/`} className="nav-link"><img src={Logo} alt="BigCo Inc. logo" /></Link>
+                        <a href="./index.html"><img src="img/logo.png" alt=""/></a>
                             </div>
                             <ul>
                                 <li>Address: Carthage Byrsa Tunis, Tunisia</li>

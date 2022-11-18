@@ -21,7 +21,6 @@ export default function Checkout() {
     const [notes, setNotes] = useState('');
     const [message, setMessage] = useState('');  
     const [payment, setPayment] = useState('');
-    const [products, setProduct] = useState([]);
     useEffect(() => {
         async function fetchData() {
             try {
@@ -72,8 +71,8 @@ export default function Checkout() {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="checkout__input">
-                                        <label htmlFor="exampleInputEmail1">Fist Name<span>*</span></label>
-                                        <input type="text" className="form-control" label="first_name" placeholder="Fist Name" onChange={(e) => {
+                                        <label htmlFor="firstname">Fist Name<span>*</span></label>
+                                        <input type="text" className="form-control"  id='firstname'label="first_name" placeholder="Fist Name" onChange={(e) => {
                                             setFistname(e.target.value)
                                         }} />
                                     </div>
