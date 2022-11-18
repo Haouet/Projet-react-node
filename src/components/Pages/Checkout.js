@@ -72,15 +72,15 @@ export default function Checkout() {
                                 <div className="col-lg-6">
                                     <div className="checkout__input">
                                         <label htmlFor="firstname">Fist Name<span>*</span></label>
-                                        <input type="text" className="form-control"  id='firstname'label="first_name" placeholder="Fist Name" onChange={(e) => {
+                                        <input type="text" className="form-control"  id='firstname' label="first_name" placeholder="Fist Name" onChange={(e) => {
                                             setFistname(e.target.value)
                                         }} />
                                     </div>
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="checkout__input">
-                                        <label htmlFor="exampleInputEmail1">Last Name<span>*</span></label>
-                                        <input type="text" className="form-control" label="last_name" placeholder="Last Name" onChange={(e) => {
+                                        <label htmlFor="lastname">Last Name<span>*</span></label>
+                                        <input type="text" className="form-control" id="lastname" label="last_name" placeholder="Last Name" onChange={(e) => {
                                             setLastname(e.target.value)
                                         }} />
                                     </div>
@@ -88,15 +88,15 @@ export default function Checkout() {
                             </div>
                              {/* adresss */}
                             <div className="checkout__input">
-                                <label htmlFor="exampleInputEmail1">Country<span>*</span></label>
-                                <input type="text" className="form-control" label="country" placeholder="Country" onChange={(e) => {
+                                <label htmlFor="country">Country<span>*</span></label>
+                                <input type="text" className="form-control" label="country" id="country" placeholder="Country" onChange={(e) => {
                                     setCountry(e.target.value)
                                 }} />
 
                             </div>
                             <div className="checkout__input">
-                                <label htmlFor="exampleInputEmail1">Road<span>*</span></label>
-                                <input type="text" className="form-control" label="road" placeholder="Street Address" onChange={(e) => {
+                                <label htmlFor="road">Road<span>*</span></label>
+                                <input type="text" className="form-control" label="road" id="road" placeholder="Street Address" onChange={(e) => {
                                     setRoad(e.target.value)
                                 }} />
                                 {/* <input type="text" className="form-control" label="address" placeholder="Apartment, suite, unite ect (optinal)" onChange={(e) => {
@@ -104,8 +104,8 @@ export default function Checkout() {
                                 }} /> */}
                             </div>
                             <div className="checkout__input">
-                                <label htmlFor="exampleInputEmail1">Town/City<span>*</span></label>
-                                <input type="text" className="form-control" label="city" placeholder="Town/City" onChange={(e) => {
+                                <label htmlFor="city">Town/City<span>*</span></label>
+                                <input type="text" className="form-control" label="city" id="city" placeholder="Town/City" onChange={(e) => {
                                     setCity(e.target.value)
                                 }} />
 
@@ -125,8 +125,8 @@ export default function Checkout() {
                             <div className="row">
                                 <div className="col-lg-6">
                                     <div className="checkout__input">
-                                        <label htmlFor="exampleInputEmail1">Phone<span>*</span></label>
-                                        <input type="text" className="form-control" label="phone" placeholder="Phone" onChange={(e) => {
+                                        <label htmlFor="phone">Phone<span>*</span></label>
+                                        <input type="text" className="form-control" label="phone" id="phone" placeholder="Phone" onChange={(e) => {
                                             setPhone(e.target.value)
                                         }} />
 
@@ -134,8 +134,8 @@ export default function Checkout() {
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="checkout__input">
-                                        <label htmlFor="exampleInputEmail1">Email<span>*</span></label>
-                                        <input type="email" className="form-control" label="email" placeholder="Email" onChange={(e) => {
+                                        <label htmlFor="email">Email<span>*</span></label>
+                                        <input type="email" className="form-control" label="email" id='email' placeholder="Email" onChange={(e) => {
                                             setEmail(e.target.value)
                                         }} />
                                     </div>
@@ -151,15 +151,15 @@ export default function Checkout() {
                             <p>Create an account by entering the information below. If you are a returning customer
                                 please login at the top of the page</p>
                             <div className="checkout__input">
-                                <label htmlFor="exampleInputEmail1">Username<span>*</span></label>
-                                <input type="text" className="form-control" label="username" placeholder="Username" onChange={(e) => {
+                                <label htmlFor="username">Username<span>*</span></label>
+                                <input type="text" className="form-control" label="username" id="username" placeholder="Username" onChange={(e) => {
                                     setUsername(e.target.value)
                                 }} />
 
                             </div>
                             <div className="checkout__input">
-                                <label htmlFor="exampleInputEmail1">Account Password<span>*</span></label>
-                                <input type="password" className="form-control" label="password" placeholder="Password" onChange={(e) => {
+                                <label htmlFor="password">Account Password<span>*</span></label>
+                                <input type="password" className="form-control" label="password" id="password"  placeholder="Password" onChange={(e) => {
                                     setPassword(e.target.value)
                                 }} />
 
@@ -188,7 +188,7 @@ export default function Checkout() {
                                 </ul>
                                 <div className="checkout__order__total">Total <span>${getTotal().totalPrice}</span></div>
                                 <div className="checkout__input__checkbox">
-                                    <label for="acc-or">
+                                    <label htmlFor="acc-or">
                                         Create an account?
                                         <input type="checkbox" id="acc-or"  onChange={(e) => {
                                             var value = e.target.value;
@@ -201,7 +201,7 @@ export default function Checkout() {
                                 <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
                                     ut labore et dolore magna aliqua.</p>
                                 <div className="checkout__input__checkbox">
-                                    <label for="payment">
+                                    <label htmlFor="payment">
                                         Check Payment
                                         <input type="checkbox" id="payment"  value="Cash On Delivery" label="payment_method"   onChange={(e) => {
                                             var value = e.target.value;
