@@ -8,7 +8,7 @@ function Banner() {
         <div className="container">
             <div className="row">
                 <div className="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
+                    <div className="banner__pic">
                          <img src={banner} alt="banner 1" />
                     </div>
                 </div>
