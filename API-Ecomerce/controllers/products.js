@@ -109,7 +109,7 @@ exports.getProductByCatName = async(req,res,next) =>{
 exports.getProductByTitle=  async(req, res, next) => {
 
   const foundTitle = await Product.findOne({ title: req.params.title });
-  await Product.find({ foundTitle: foundTitle.Title })
+  await Product.find({ _id: foundTitle._id  })
   .then(data => {
          return res.status(201).json({ success: true, msg: 'Successful created new Product', data:data });  //creation successfull
        }).catch(err => {

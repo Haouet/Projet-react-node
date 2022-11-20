@@ -11,32 +11,40 @@ function Contact() {
  
   
   return (
-    <div className='container'>      
 
-      
+    <div className='contact-form spad'>
+    <div className='container'> 
+    <div className="row">
+                <div className="col-lg-12">
+                    <div className="contact__form__title">
+                        <h2>Leave Message</h2>
+                    </div>
+                </div>
+            </div> 
+            <form action='#' >
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Email address</label>
+       
         <input type="email" className="form-control" label="email" placeholder="Enter email" onChange={(e) => {
           setEmail(e.target.value)
         }} />
 
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Subject</label>
+       
         <input type="text" className="form-control" label="subject" placeholder="Enter subject" onChange={(e) => {
           setSubject(e.target.value)
         }} />
 
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Subject</label>
+      
         <textarea type="text" className="form-control" label="text" placeholder="Enter message" onChange={(e) => {
           setText(e.target.value)
         }} />
 
       </div>
       <div className="form-group">
-      <button type="submit" className="btn btn-primary" onClick={async () => {
+      <button type="submit" className="primary-btn" onClick={async () => {
 
         const sendEmail = await axios.post(baseURL,{
          email,
@@ -50,6 +58,8 @@ function Contact() {
 
       }}> Submit</button>
        <div>{message}</div>
+    </div>
+    </form>
     </div>
     </div>
   )

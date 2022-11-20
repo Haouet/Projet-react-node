@@ -1,6 +1,7 @@
 import Categorie from '../Categorie';
 
 import Search from '../Search';
+import Banner from './Elements/Banner';
 
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+            <Banner/>
 
         </>
     )
