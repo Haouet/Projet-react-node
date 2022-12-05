@@ -1,78 +1,158 @@
 var Product = require("../models/products")
-var Category = require("../models/category")
+var Category = require("../models/category");
+var Files = require("../models/file");
 
-exports.getAllProducts = (req, res, next) => {
-    Product.find()
-      .then((data) => {
-        return res
-          .status(200)
-          .json({ success: true, Products: data.length, data: data });
-      })
-      .catch((err) => {
-        console.log(err);
-        return res.status(404).json({ err: err });
-      });
-  };
+const filePathFormatter = (path, baseurl) => {
+  const absolutePath = path.replace(/\\/g, "/");
+  return `${baseurl}/${absolutePath}`;
+};
+const fileSizeFormatter = (bytes, decimal) => {
+  if (bytes === 0) return "0 bytes";
+  const dm = decimal || 2;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TO"];
+  const index = Math.floor(Math.log(bytes) / Math.log(1000));
+  return (
+    parseFloat((bytes / Math.pow(1000, index)).toFixed(dm)) + " " + sizes[index]
+  );
+};
 
-exports.addManyProducts = async (req, res, next) => {
-    Product.insertMany(req.body.products).then(function () {
-      return res.status(201).json({ success: true, msg: 'Successful created multiple products' });  //creation successfull
-  }).catch(function (error) {
-      return res.status(401).json({ success: true, msg: 'product existt', error: error });  //creation successfull
+
+exports.addproduct = async (req, res, next) => { 
+  if (!req.files) {
+    console.log("No File provided");
+    return res.status(400).send("No File provided");
+  }
+  const filesArray = [];
+  req.files.forEach((element) => {
+    const file = new Files({
+      name: element.originalname,
+      fileUrl: filePathFormatter(element.path, process.env.BASE_URL),
+      type: element.mimetype,
+      // fileSize: fileSizeFormatter(element.size, 2),
+    });
+    file.save();
+    filesArray.push(file);
   });
-  };
-exports.addproduct = async (req, res, next) => {
-  await Category.findOne({
-    name: req.body.category,
-  })
-    .then((data) => {
-      if (data) {
-        var produit = new Product({ ...req.body, category: data.id });
-        produit
-          .save()
-          .then((result) => {
-            return res.status(201).json({
-              success: true,
-              msg: "Successful created new User",
-              data: result,
-            });
-          })
-          .catch((error) => {
-            console.error(error);
-            return res.status(403).json({ err: error });
-          });
-      }
-      // create address, then create user with the id of created address
-      else {
-        var category = new Category(req.body.category);
-        category 
-          .save()
-          .then((data) => {
-            var produit = new Product({ ...req.body, category : data._id });
-            produit
-              .save()
-              .then((result) => {
-                return res.status(201).json({
-                  success: true,
-                  msg: "Successful created new Product",
-                  data: result,
-                });
-              })
-              .catch((error) => {
-                console.error(error);
-                return res.status(403).json({ err: error });
+  await Category.find({ name: req.body.category }).then(async(data) => {
+    const catArray = [];
+    data.forEach((cat) => {
+      catArray.push(cat._id);
+    });
+    if (data) {   
+      console.log(data);
+    const product = new Product({
+      ...req.body,
+      category: catArray ,
+      images: filesArray,
+    });
+    await product
+      .save()
+      .then((result) => {
+        res.status(201).json({ success: true, data: result });
+      })
+    }
+    // create address, then create user with the id of created category
+    else {
+      var category = new Category(req.body.category);
+      category 
+        .save()
+        .then((data) => {
+          var produit = new Product({ ...req.body, category: data._id });
+          produit
+            .save()
+            .then((result) => {
+              return res.status(201).json({
+                success: true,
+                msg: "Successful created new Product",
+                data: result,
               });
-          })
-          .catch((err) => {
-            console.error(err);
-            return res.status(403).json({ err: err });
-          });      }
+            })
+            .catch((error) => {
+              console.error(error);
+              return res.status(403).json({ err: error });
+            });
+        })
+        .catch((err) => {
+          console.error(err);
+          return res.status(403).json({ err: err });
+        });    
+        }
+  })
+
+  
+
+//   try {
+//     // const categoryExists = await Category.findOne({ name: req.body.category });
+//     // let newProduct = new Products({ ...req.body, category: categoryExists.id});    
+//     // newProduct = await newProduct.save();
+//     res.status(200).json({
+//        successMessage: '  was created',
+//     });
+//  } catch (err) {
+//     console.log('Category create error', err);
+//     return res.status(500).json({
+//        errorMessage: 'Please try again later',
+//     });
+//  }
+  
+ 
+  
+
+  //  const filesArray = [];  
+ 
+  // await Category.findOne({
+  //   cat: req.body.category,
+  // })
+  //   .then((data) => {
+  //     if (data) {      
+        
+  //       var produit = new Product({ ...req.body, category: data.id});  
+  // //       const file = new Files({
+  // //         name: req.file.originalname,
+  // //         fileUrl: req.file.originalname,
+  // //         type: req.file.mimetype,
+  // //         product_id : produit.id,
+         
+         
+  // //       });
+  // //       file.save();
+  // //       filesArray.push(file.id); 
+  //       produit
+  //         .save()
+  //         .then((result) => {
+  //           return res.status(201).json({
+  //             success: true,
+  //             msg: "Successful created new product",
+  //             data: result,
+  //           });
+            
+  //         })
+  //         .catch((error) => {
+  //           console.error(error);
+  //           return res.status(403).json({ err: error });
+  //         });
+          
+  
+};
+exports.getAllProducts = (req, res, next) => {
+  Product.find()
+    .then((data) => {
+      return res
+        .status(200)
+        .json({ success: true, Products: data.length, data: data });
     })
     .catch((err) => {
-      console.error(err);
-      return res.status(403).json({ err: err });
+      console.log(err);
+      return res.status(404).json({ err: err });
     });
+};
 
+exports.addManyProducts = async (req, res, next) => {
+  Product.insertMany(req.body.products).then(function () {
+    return res.status(201).json({ success: true, msg: 'Successful created multiple products' });  //creation successfull
+}).catch(function (error) {
+    return res.status(401).json({ success: true, msg: 'product existt', error: error });  //creation successfull
+});
 };
 
 exports.getProductByCat = async(req,res,next) =>{
@@ -107,9 +187,23 @@ exports.getProductByCatName = async(req,res,next) =>{
 
 }
 exports.getProductByTitle=  async(req, res, next) => {
+const Title = req.params.title;
 
-  const foundTitle = await Product.findOne({ title: req.params.title });
-  await Product.find({ _id: foundTitle._id  })
+//   const foundTitle = await Product.find({ "title":   new RegExp(Title, 'i')});
+//   console.log(foundTitle);
+//   console.log(foundTitle.title);
+
+ 
+// //  const findProduct = await Product.find({ _id: foundTitle ._id  });
+// //  console.log(findProduct);
+//  res.json(foundTitle);
+
+// const Title = req.params.title
+  const foundTitle = await Product.findOne({ title: {
+    $regex: new RegExp(Title, "ig")
+} })
+ 
+  // await Product.findById({ _id: foundTitle._id  })
   .then(data => {
          return res.status(201).json({ success: true, msg: 'Successful created new Product', data:data });  //creation successfull
        }).catch(err => {

@@ -7,7 +7,7 @@ export default function Slider() {
       
     };
     return (
-        <div>
+     
             <div className="hero__item set-bg" style={myStyle}>
             
                 <div className="hero__text">
@@ -17,6 +17,6 @@ export default function Slider() {
                     <Link to={`/shop`} className="primary-btn">SHOP NOW</Link>
                 </div>
             </div>
-        </div>
+        
     )
 }

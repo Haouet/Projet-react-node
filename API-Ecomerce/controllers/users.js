@@ -4,39 +4,24 @@ const jwt = require("jsonwebtoken");
 const tokenList = {};
 const verifyEmail = require("../config/verifyemail");
 const resetPassEmail = require("../config/resetpassemail");
-exports.addUser = async (req, res, next) => {
-  // await Address.findOne({
-  //   address: req.body.address,
-  // })
+exports.addUser = async(req, res, next) => {
+  console.log("ok");
   await Address.findOne({
-    address: req.body.address,
+    country: req.body.address.country,
+    city: req.body.address.city,
+    road: req.body.address.road
   })
-    .then(async (data) => {
+    .then((data) => {
       if (data) {
-        const user = new User({ ...req.body, address: data._id });
+       
+        var user = new User({ ...req.body, address: data.id });
+        console.log(user);
         user
           .save()
-          .then(async (result) => {
-            // const verifyToken = jwt.sign(
-            //   result.toJSON(),
-            //   process.env.VERIFY_TOKEN_KEY,
-            //   {
-            //     expiresIn: 60 * 30,
-            //   }
-            // );
-            // await User.findByIdAndUpdate(result._id, {
-            //   verify_token: verifyToken,
-            // });
-            // await verifyEmail(
-            //   result.email,
-            //   result.first_name,
-            //   result.username,
-            //   verifyToken
-            // );
+          .then((result) => {
             return res.status(201).json({
               success: true,
               msg: "Successful created new User",
-              hint: "verification link sent to your email",
               data: result,
             });
           })
@@ -46,32 +31,54 @@ exports.addUser = async (req, res, next) => {
           });
       }
       // create address, then create user with the id of created address
-      else return res.status(403).json({ err: "Wrong Address", address: data });
+      else {
+      
+        var address = new Address(req.body.address);
+        console.log(address);
+        address
+          .save()
+          .then((data) => {
+            var user = new User({ ...req.body, address : data._id });
+            console.log(user);
+            user
+              .save()
+              .then((result) => {
+                return res.status(201).json({
+                  success: true,
+                  msg: "Successful created new address",
+                  data: result,
+                });
+              })
+              .catch((error) => {
+                console.error(error);
+                return res.status(403).json({ err: error });
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+            return res.status(403).json({ err: err });
+          });      }
     })
     .catch((err) => {
       console.error(err);
       return res.status(403).json({ err: err });
     });
+ 
 };
 exports.getUsers = (req, res, next) => {
-  req.query.populate === "address"
-    ? User.find()
-        .populate("address")
-        .then((data) => {
-          return res.status(200).json({ success: true, data: data });
-        })
-        .catch((err) => {
-          console.error(err);
-          return res.status(403).json({ err: err });
-        })
-    : User.find()
-        .then((data) => {
-          return res.status(200).json({ success: true, data: data });
-        })
-        .catch((err) => {
-          console.error(err);
-          return res.status(403).json({ err: err });
-        });
+
+  User.find()
+  .then((data) => {
+    return res
+      .status(200)
+      .json({ success: true, Users: data.length, data: data });
+  })
+  .catch((err) => {
+    console.log(err);
+    return res.status(404).json({ err: err });
+  });
+
+
 };
 exports.getUserId = (req, res, next) => {
   req.query.populate === "address"
@@ -107,7 +114,7 @@ exports.updateUserId = (req, res, next) => {
     .then((data) => {
       User.findByIdAndUpdate(req.params.id, {
         ...req.body,
-        address: data._id,
+        address: data._id
       })
         .then((result) => {
           return res.status(200).json({ success: true, data: result });
@@ -134,51 +141,55 @@ exports.deleteUserId = (req, res, next) => {
     });
 };
 exports.login = (req, res, next) => {
-  User.findOne(
-    { $or: [{ username: req.body.login }, { email: req.body.login }] },
-    (err, user) => {
-      if (err) throw err;
-      if (!user) {
-        res.status(401).send({
-          success: false,
-          msg: "Authentication failed. User not found.",
-        });
-      } else {
-        user.comparePassword(req.body.password, (err, isMatch) => {
-          if (isMatch && !err) {
-            const token = jwt.sign(user.toJSON(), process.env.TOKEN_KEY, {
-              expiresIn: process.env.TOKEN_LIFE,
-            });
 
-            const refreshToken = jwt.sign(
-              user.toJSON(),
-              process.env.REFRESH_TOKEN_KEY,
-              {
-                expiresIn: process.env.REFRESH_TOKEN_LIFE,
-              }
-            );
-            const response = {
-              status: "Logged in",
-              token: token,
-              refreshToken: refreshToken,
-              user: {
-                username: user.username,
-                _id: user._id,
-              },
-            };
-            tokenList[refreshToken] = response;
-            res.status(200).json(response);
-          } else {
-            console.log(err);
-            res.status(401).send({
-              success: false,
-              msg: "Authentication failed. Wrong password.",
-            });
-          }
+
+  User.findOne({
+    username: req.body.username
+    }, (err, user) => {
+    if (err) throw err;
+    if (!user) {
+      return res.status(401).send({success: false, msg: 'Authentication failed. User not found.'});
+    } else {
+      console.log(user);
+      // check if password matches
+      user.comparePassword(req.body.password, (err, isMatch) => {
+        
+        console.log("compare password");
+        if (isMatch && !err) {
+          
+          // if user is found and password is right create a token
+          var token = jwt.sign(user.toJSON(),process.env.TOKEN_KEY, {
+            expiresIn: '24h'
         });
-      }
+        const refreshToken = jwt.sign(
+                      user.toJSON(),
+                      process.env.TOKEN_KEY,
+                      {
+                        expiresIn: process.env.REFRESH_TOKEN_LIFE,
+                      }
+                    );
+                    const response = {
+                                  status: "Logged in",
+                                  token: token,
+                                  refreshToken: refreshToken,
+                                  user: {
+                                    username: user.username,
+                                    _id: user._id,
+                                  },
+                                };
+                                tokenList[refreshToken] = response;
+                                res.status(200).json(response);
+          // return the information including token as JSON
+          
+        // var   responseUser = user;
+        // return res.json({success: true, token: 'JWT ' + token ,user: responseUser});
+        } else {
+          return  res.status(401).send({success: false, msg: 'Authentication failed. Wrong password.'});
+        }
+      });
     }
-  );
+  });
+ 
 };
 exports.token = (req, res, next) => {
   if (req.body.refreshToken && req.body.refreshToken in tokenList) {
@@ -212,6 +223,7 @@ exports.token = (req, res, next) => {
 };
 exports.requestVerify = async (req, res, next) => {
   const token = await req.headers.authorization.split(" ")[1];
+  console.log("token :" , token );
   const decodedUser = jwt.verify(await token, process.env.TOKEN_KEY);
   User.findById(decodedUser._id).then(async (found) => {
     const verifyToken = jwt.sign(found.toJSON(), process.env.VERIFY_TOKEN_KEY, {
@@ -239,7 +251,7 @@ exports.requestVerify = async (req, res, next) => {
 exports.verifyUser = async (req, res, next) => {
   const userVerification = jwt.verify(
     req.query.verify_token,
-    process.env.VERIFY_TOKEN_KEY
+    process.env.TOKEN_KEY
   );
   if (userVerification.verified) {
     return res.status(200).json({ msg: "Already verified" });
@@ -280,7 +292,7 @@ exports.forgetPass = (req, res, next) => {
     $or: [{ username: req.query.login }, { email: req.query.login }],
   })
     .then((data) => {
-      const resetToken = jwt.sign(data.toJSON(), process.env.VERIFY_TOKEN_KEY, {
+      const resetToken = jwt.sign(data.toJSON(), process.env.TOKEN_KEY, {
         expiresIn: 60 * 30,
       });
       User.findByIdAndUpdate(data._id, { pass_reset_token: resetToken }).then(
@@ -307,7 +319,7 @@ exports.forgetPass = (req, res, next) => {
 exports.resetPass = async (req, res, next) => {
   const resetVerify = jwt.verify(
     await req.query.reset_token,
-    process.env.VERIFY_TOKEN_KEY
+    process.env.TOKEN_KEY
   );
   await User.findById(resetVerify._id)
     .then(async (data) => {

@@ -142,7 +142,7 @@ export default function Checkout() {
                                 </div>
                             </div>
                             <div className="checkout__input__checkbox">
-                                <label for="acc">
+                                <label htmlFor="acc">
                                     Create an account?
                                     <input type="checkbox" id="acc" />
                                     <span className="checkmark"></span>

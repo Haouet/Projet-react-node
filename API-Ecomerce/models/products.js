@@ -11,7 +11,13 @@ const productsSchema = mongoose.Schema(
     category : {   type: mongoose.Schema.Types.ObjectId,
                     ref : "category"},
     thumbnail :{ type : String, required : false  },
-    images : [{type : String  }],
+    images : [
+      // {type : String, required : false }
+      
+      
+      {type: mongoose.Schema.Types.ObjectId,
+                    ref : "file" }
+                  ],
     isVisible : {type: Boolean, default: true},
     created_at: {
         type: Date,
@@ -31,7 +37,11 @@ const productsSchema = mongoose.Schema(
  const populate =[{
       path : 'category',
       match : {isVisible : true}
-  }
+},
+  {
+    path : 'images',
+    match : {isVisible : true}
+}
   ];
 productsSchema.pre('find', findVisible(populate));
 productsSchema.pre('findOne', findVisible(populate));

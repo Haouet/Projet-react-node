@@ -700,6 +700,7 @@ ol {
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
+	margin-bottom: 50px;
 }
 
 .hero__text span {

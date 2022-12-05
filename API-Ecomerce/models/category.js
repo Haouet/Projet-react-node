@@ -3,7 +3,7 @@ const  deepPopulate = require('mongoose-deep-populate')(mongoose);
 const catSchema = mongoose.Schema(
     {
     name : { type : String, required: [true, "name field is required"] },
-    desc: { type : String, required: [true, "desc field is required"]  },
+    desc: { type : String  },
     isVisible : {type: Boolean, default: true},
     created_at: {
         type: Date,

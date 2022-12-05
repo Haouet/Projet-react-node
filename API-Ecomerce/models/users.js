@@ -41,14 +41,13 @@ const UserSchema = new Schema({
     enum: ["Admin", "Supervisor", "User"],
     default: "User",
   },
-  address: {
-    type: mongoose.Types.ObjectId,
-    ref: "Address",
-  },
-  order: {
-    type: mongoose.Types.ObjectId,
-    ref: "Orders",
-  },
+  address: {  type: mongoose.Schema.Types.ObjectId,
+    ref : "Address"
+  }, 
+  // order: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "Orders",
+  // },
   isVisible : {type: Boolean, default: true},
   verified: {
     type: Boolean,
@@ -76,11 +75,12 @@ const UserSchema = new Schema({
 const populate =[{
     path : 'address',
     match : {isVisible : true}
-},
-{
-    path : 'order',
-    match : {isVisible : true}
 }
+// ,
+// {
+//     path : 'order',
+//     match : {isVisible : true}
+// }
 ];
 UserSchema.pre('find', findVisible(populate));
 UserSchema.pre('findOne', findVisible(populate));
@@ -112,8 +112,10 @@ UserSchema.pre("save", function (next) {
   }
 });
 
-UserSchema.methods.comparePassword = function (passw, cb) {
-  bcrypt.compare(passw, this.password, function (err, isMatch) {
+UserSchema.methods.comparePassword = function (pass, cb) {
+
+  bcrypt.compare(pass, this.password, function (err, isMatch) {
+  
     if (err) {
       return cb(err);
     }

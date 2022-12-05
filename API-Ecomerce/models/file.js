@@ -13,6 +13,18 @@ const FilesSchema = mongoose.Schema(
     fileUrl: {
         type: String
     },
+    product_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product",
+      },
+    category_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "category",
+      },
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Users",
+      },      
     created_at: {
         type: Date
     },
@@ -21,24 +33,20 @@ const FilesSchema = mongoose.Schema(
     },
     deleted_at: {
         type: Date
-    },
-    thumbnail: {
-        type: mongoose.Types.ObjectId,
-        ref: "product",
-      },
-    image: {
-        type: mongoose.Types.ObjectId,
-        ref: "category",
-      }
+    }
   
 
 });
 const populate =[{
-    path : 'thumbnail',
+    path : 'product_id',
     match : {isVisible : true}
 },
 {
-    path : ' image',
+    path : 'category_id',
+    match : {isVisible : true}
+},
+{
+    path : 'user_id',
     match : {isVisible : true}
 }
 ];

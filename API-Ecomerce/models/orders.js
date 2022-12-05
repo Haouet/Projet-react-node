@@ -5,13 +5,13 @@ const findVisible = require('./findVisible');
 const OrdersSchema = new Schema({
   products: [
     {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Products",
       required: true,
     },
   ],
   user: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Users",
     required: true,
   },

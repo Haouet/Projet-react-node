@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var productCtl = require('../controllers/products');
-
+var upload = require("../middlewares/multer-config");
 /* GET persons listing. */
 router.get('/',productCtl.getAllProducts);
 router.get('/:id',productCtl.getProductId); 
@@ -11,7 +11,7 @@ router.get('/cat/:id', productCtl.getProductByCat);
 router.get('/:title', productCtl.getProductByTitle);
 router.get('/category/:name', productCtl.getProductByCatName);
 // :5000/product/add */
- router.post('/add',productCtl.addproduct);
+ router.post('/add',upload.array("images"),productCtl.addproduct);
 // //Add All products :5000/product/addall
 router.post('/addall',productCtl.addManyProducts); 
 // //Find One
