@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-const baseURL = "http://localhost:5000/email";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/email";
 
 function Contact() {
  
