@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Order from './Order';
 import { useSelector } from 'react-redux';
-const baseURL = "http://localhost:5000/api/users";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/";
 export default function Checkout() {
     const [users, setUsers] = useState([]);
     const [username, setUsername] = useState('');
