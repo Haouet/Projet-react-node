@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://frontend-ecommerce-7xjw.onrender.com/',
 }))
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
