@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
-const baseURL = "http://localhost:5000/api/product/";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/";
 
 export default function Deatils() {
        const dispatch = useDispatch();
