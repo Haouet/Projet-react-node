@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../Search.css';
 import Product from '../Product';
 
-const baseURL = "http://localhost:5000/api/product";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 export default function Shop (){
     const [loading, setLoading] = useState(true);
    

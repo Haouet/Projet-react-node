@@ -1,98 +1,60 @@
-const File = require('../models/file');
+const Images = require("../models/file");
+const filePathFormatter = (path, baseurl) => {
+  const absolutePath = path.replace(/\\/g, "/");
+  return `${baseurl}/${absolutePath}`;
+};
+const fileSizeFormatter = (bytes, decimal) => {
+  if (bytes === 0) return "0 bytes";
+  const dm = decimal || 2;
+  const sizes = ["Bytes", "KB", "MB", "GB", "TO"];
+  const index = Math.floor(Math.log(bytes) / Math.log(1000));
+  return (
+    parseFloat((bytes / Math.pow(1000, index)).toFixed(dm)) + " " + sizes[index]
+  );
+};
+exports.singleImageUpload = async (req, res, next) => {
+  if (!req.files) {
+    console.log("No File provided");
+    return res.status(400).send("No File provided");
+  }
 
-// Add File
-
-exports.addMultipleFile = (req,res,next) =>{
-    // var opts = {};
-    // opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-    // opts.secretOrKey = config.secret;
-    // passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-        const url = req.protocol + '://' + req.get('host');
-
-        // console.log(jwt_payload);
-        if (!req.files) {
-          res.status(400).json({
-            error: 'there is no file'
-          });
-        }
-        req.files.map(fileTemp => {
-          const file = new File({
-            name: fileTemp.filename,
-            type: fileTemp.mimetype,
-            user_id: req.body.user_id,
-            fileUrl: url + '/files/' + fileTemp.filename,
-            created_at: Date.now(),
-            updated_at: Date.now()
-          });
-          file.save().then(
-            () => {
-              res.status(201).json({
-                message: 'File saved successfully!',
-                file
-              });
-            }
-          ).catch(
-            (error) => {
-              res.status(400).json({
-                error: error
-              });
-            }
-          );
-        });
-    
-}
-
-exports.addFile = (req,res,next) =>{
-    // var opts = {};
-    // opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-    // opts.secretOrKey = config.secret;
-    // passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-        const url = req.protocol + '://' + req.get('host');
-        // console.log(jwt_payload);
-        if (!req.file) {
-          res.status(400).json({
-            error: 'there is no file'
-          });
-        }      
-          const file = new File({
-            name: req.file.filename,
-            type: req.file.mimetype,
-            images: req.body.images,
-            fileUrl: url + '/files/' + req.file.filename,
-            created_at: Date.now(),
-            updated_at: Date.now()
-          });
-          file.save().then(
-            () => {
-              res.status(201).json({
-                message: 'File saved successfully!',
-                file
-              });
-            }
-          ).catch(
-            (error) => {
-              res.status(400).json({
-                error: error
-              });
-            }
-          );
-    
-}
-
-
-exports.getFiles = (req,res,next) => {
-File.find().populate({
-    path: 'user_id',
-    model: 'User',
-    populate: { path: 'images' }
-  }).then(files=>{
-    res.status(200).send({
-        files: files
+  try {
+    const filesArray = [];
+    req.files.forEach((element) => {
+      const file = new Images({
+        fileName: element.originalname,
+        filePath: filePathFormatter(element.path, process.env.BASE_URL),
+        fileType: element.mimetype,
+        fileSize: fileSizeFormatter(element.size, 2),
+      });
+      file.save();
+      filesArray.push(file);
+    });
+    res
+      .status(201)
+      .json({ success: true, uploaded: filesArray.length, data: filesArray });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ success: false, msg: error });
+  }
+};
+exports.getAllImages = (req, res, next) => {
+  Images.find()
+    .then((data) => {
+      res.status(200).json({ success: true, images: data.length, data: data });
     })
-}).catch(err=>{
-  res.status(401).send({
-    err: err
-  })
-})
-
-}
+    .catch((error) => {
+      console.log(error);
+      res.status.json({ success: false, error: error });
+    });
+};
+exports.deleteAllImages = (req, res, next) => {
+  Images.deleteMany({ fileType: "image/png" })
+    .then((data) => {
+      res.status(200).json({ deleted: true });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status.json({ success: false, error: error });
+    });
+};

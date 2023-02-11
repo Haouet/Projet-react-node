@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Deatils from "./components/Pages/Elements/Deatils";
 import Card from "./components/Pages/Card";
 import Checkout from "./components/Pages/Checkout";
+import AddProduct from "./Back/AddProduct";
 function App() {
   return (
     <>
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/details/:id" element={<Deatils />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="*" element={<Error />} />
+                <Route path="/back/addproduct" element={<AddProduct/>} />
      </Routes>
      <Footer/>
     </>

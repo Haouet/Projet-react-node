@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 function CartItem({ id, title, price}) {
     const cart = useSelector((state) => state.Card.Card);
-    
-    const [Qts, setQts] = useState('1');
+
+    const [Qts, setQts] = useState(1);
     // console.log(id);
 
     const dispatch = useDispatch();
@@ -13,13 +13,13 @@ function CartItem({ id, title, price}) {
     const onClickIncrease = (e) => {
         //   console.log(Qts);
         e.stopPropagation();
-        // setQts(Qts + 1);
+         setQts(Qts + 1);
 
         dispatch(incrementQuantity(id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
-        // setQts(Qts - 1);
+        setQts(Qts - 1);
         dispatch(decrementQuantity(id, Qts))
     }
     const Remove = () => {

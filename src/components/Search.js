@@ -5,7 +5,7 @@ import './Search.css';
 import Product from './Product';
 import Slider from './Pages/Elements/Slider';
 import Info from './Info';
-const baseURL = "http://localhost:5000/api/product";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 export default function Search() {
    
     const [loading, setLoading] = useState(true);

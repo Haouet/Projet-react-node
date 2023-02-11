@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 export const CardSlice = createSlice({
 name : "Card",
  initialState: {
- 
+  Qts : 0,
   Card: [],
   
 }, 

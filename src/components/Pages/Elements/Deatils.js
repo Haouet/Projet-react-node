@@ -3,19 +3,21 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
+
 const baseURL = "http://localhost:5000/api/product/";
 
 export default function Deatils() {
        const dispatch = useDispatch();
     let { id } = useParams();
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
+    
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const { data: response } = await axios.get(baseURL + `${id}`);
+                const { data: response } = await axios.get(`${baseURL}${id}`);
                 console.log(response.data);
                 setData(response.data);
 
@@ -26,7 +28,7 @@ export default function Deatils() {
         }
 
         fetchData();
-    }, []);
+    }, [id]);
     const handleCard = (e) => {
         e.preventDefault();
         dispatch(addCard(
@@ -48,8 +50,14 @@ export default function Deatils() {
             <div className="row">
                 <div className="col-lg-6 col-md-6">
                     <div className="product__details__pic">
-                        <div className="product__details__pic__item">
-                            <img  width={400} height={400} alt={data.title}  src={data.thumbnail}  />
+                        <div className="product__details__pic__item" >
+                                                            
+                                        {/* <Images key={data.images} /> */}
+                               
+                      
+                            <img  width={400} height={400} alt={data.title}  src={data.images}  />
+                        
+                    
                         </div>
                         <div className="product__details__pic__slider owl-carousel owl-loaded owl-drag">
 
@@ -69,7 +77,7 @@ export default function Deatils() {
                             </div>
                             <div className="product__details__price">${data.price}</div>
                             <p>{data.description}</p>
-                           
+                            <p>Category :</p>
                             <button className="primary-btn" onClick={handleCard}><Link to={`/card`} >
                             SHOP NOW </Link> </button>
                        
