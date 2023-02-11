@@ -3,7 +3,7 @@ import axios from "axios";
 import './Cat.css';
 import ListCat from './ListCat';
 // import ListCat from './ListCat';
-const baseURL = "http://localhost:5000/api/cat/";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/cat/";
 export default function Categorie() {
   const [loading, setLoading] = useState(true);
   const [listCategory, setListCategory] = useState([]);
