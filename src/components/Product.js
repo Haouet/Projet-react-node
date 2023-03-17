@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './Product.css';
 import { useDispatch } from 'react-redux';
 import { addCard } from '../features/CardSlice';
-
+import formatCurrency from './formatCurrency';
 export default function Product({ _id, title, price, description, images
     , thumbnail, stock }) {
 
@@ -40,7 +40,7 @@ export default function Product({ _id, title, price, description, images
                     <div className='featured__item__text'>
                         <h6><Link to={`/details/${_id}`} >{title}</Link></h6>
                         <p>{description}</p>
-                        <h5>${price}</h5>
+                        <h5>{formatCurrency(price)}</h5>
                         <h6>In stock :{stock}</h6>
 
                         <button className="primary-btn" onClick={handleCard}><Link to={`/card`} >

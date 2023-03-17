@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Search.css';
 import Product from './Product';
 import {useParams} from "react-router-dom";
+
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product/category/";
 export default function ProductCat() {
     let {name} = useParams();
