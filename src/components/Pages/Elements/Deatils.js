@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product/";
-
+import formatCurrency from './formatCurrency';
 export default function Deatils() {
        const dispatch = useDispatch();
     let { id } = useParams();
@@ -68,7 +68,7 @@ export default function Deatils() {
                                 <i className="fa fa-star-half-o"></i>
                                 <span>(18 reviews)</span>
                             </div>
-                            <div className="product__details__price">${data.price}</div>
+                            <div className="product__details__price">{formatCurrency(data.price)}</div>
                             <p>{data.description}</p>
                            
                             <button className="primary-btn" onClick={handleCard}><Link to={`/card`} >
