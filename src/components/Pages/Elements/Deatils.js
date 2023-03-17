@@ -3,11 +3,12 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
-const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/";
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 
 export default function Deatils() {
        const dispatch = useDispatch();
     let { id } = useParams();
+    console.log(id);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -49,7 +50,7 @@ export default function Deatils() {
                 <div className="col-lg-6 col-md-6">
                     <div className="product__details__pic">
                         <div className="product__details__pic__item">
-                            <img  width={400} height={400} alt={data.title}  src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"  />
+                            <img  width={300} height={300} alt={data.title}  src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80"  />
                         </div>
                         <div className="product__details__pic__slider owl-carousel owl-loaded owl-drag">
 
