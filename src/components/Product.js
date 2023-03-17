@@ -31,6 +31,7 @@ export default function Product({ _id, title, price, description, images
         <div className='row featured__filter' id={_id} >
             <div className='' >
                 <div className=''>
+                    <br/>
                     <Link to={`/details/${_id}`} >
                         <div className='featured__item__pic set-bg' data-setbg={thumbnail
                         } style={{ backgroundImage: `url(https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80)` }} >

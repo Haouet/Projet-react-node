@@ -64,7 +64,7 @@ function CartItem({ id, title, price}) {
                     </tr>
                 </tbody>
             </table>
-         ):  'There is no posts !'}
+         ):  'There is no item !'}
 
 
 
