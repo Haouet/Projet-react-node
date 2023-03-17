@@ -31,9 +31,9 @@ export default function Deatils() {
         e.preventDefault();
         dispatch(addCard(
             {
-                id: data._id,
-                title: data.title,
-                price: data.price,
+                id: response._id,
+                title: response.title,
+                price: response.price,
                 Qts: 1
 
             }
