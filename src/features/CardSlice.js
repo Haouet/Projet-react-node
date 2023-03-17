@@ -32,10 +32,10 @@ name : "Card",
               items.Qts--;
             }
           },        
-          removeItem: (state, action) => {            
-            const removeItem = state.Card.filter((item) => item.id !== action.payload);
-            console.log(removeItem);
-            state.Card = removeItem;
+          removeItem: (state, action) => {       
+              
+            state.Card= state.Card.filter((item) => item.id !== action.payload);
+           
            
           },
           

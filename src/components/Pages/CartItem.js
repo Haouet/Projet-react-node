@@ -33,7 +33,7 @@ function CartItem({ id, title, price}) {
     return (
 
         <>
-
+         {(cart .length > 0) ? (
             <table>
                 <tbody>
                     <tr>
@@ -64,6 +64,7 @@ function CartItem({ id, title, price}) {
                     </tr>
                 </tbody>
             </table>
+         ):  'There is no posts !'}
 
 
 
