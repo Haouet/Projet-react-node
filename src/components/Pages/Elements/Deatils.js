@@ -3,29 +3,28 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
-const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product/";
 import formatCurrency from '../../formatCurrency';
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product/";
+
 export default function Deatils() {
        const dispatch = useDispatch();
     let { id } = useParams();
     console.log(id);
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const fetchData = async () => {
+        setLoading(true);
+        try {
+            const response  = await axios.get(baseURL + `${id}`);
+            console.log(response);
+            setData(response);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const { data: response } = await axios.get(baseURL + `${id}`);
-                console.log(response.data);
-                setData(response.data);
-
-            } catch (error) {
-                console.error(error.message);
-            }
-            setLoading(false);
+        } catch (error) {
+            console.error(error.message);
         }
-
+        setLoading(false);
+    }
+    useEffect(() => {
         fetchData();
     }, []);
     const handleCard = (e) => {
