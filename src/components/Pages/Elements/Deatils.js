@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams,Link  } from "react-router-dom";
 import { addCard } from '../../../features/CardSlice';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product/";
-import formatCurrency from './formatCurrency';
+import formatCurrency from '../../formatCurrency';
 export default function Deatils() {
        const dispatch = useDispatch();
     let { id } = useParams();
