@@ -5,14 +5,14 @@ import formatCurrency from '../formatCurrency';
 function CartItem({ id, title, price}) {
     const cart = useSelector((state) => state.Card.Card);
 
-    const getTotal = () => {
-        let totalQuantity = 0       
-        cart.forEach(item => {
-            totalQuantity = item.Qts
+    // const getTotal = () => {
+    //     let totalQuantity = 0       
+    //     cart.forEach(item => {
+    //         totalQuantity = item.Qts
             
-        })
-        return { totalQuantity }
-    }
+    //     })
+    //     return { totalQuantity }
+    // }
     
     // const [Qts, setQts] = useState('1');
     // console.log(id);
@@ -58,7 +58,7 @@ function CartItem({ id, title, price}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={getTotal().totalQuantity} />
+                                    <input type="text" value={cart.Qts} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
