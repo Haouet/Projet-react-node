@@ -30,7 +30,7 @@ export default function Card() {
                                         </tr>
                                     </thead> 
                                 </table>
-                                {(cart.length > 0) ? (
+                                {(Product.length > 0) ? (
                                     
                                 data?.map(item => (
                                     <CartItem key={item.id} {...item} />
