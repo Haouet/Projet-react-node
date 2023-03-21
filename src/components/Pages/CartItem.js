@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import formatCurrency from '../formatCurrency';
 function CartItem({ id, title, price}) {
-    const cart = useSelector((state) => state.Card.Card);
+    const cart = useSelector((state) => state.Card.Card.Qts);
 
     // const getTotal = () => {
     //     let totalQuantity = 0       
