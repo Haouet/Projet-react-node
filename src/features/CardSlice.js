@@ -35,7 +35,7 @@ name : "Card",
           },        
           removeItem: (state, action) => {       
               
-            state.Card= state.Card.filter((item) => item.id !== action.payload.id);
+            state.Card= state.Card.filter((item) => item.id !== action.payload);
             
            
            
