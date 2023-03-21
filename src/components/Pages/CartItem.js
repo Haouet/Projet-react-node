@@ -9,7 +9,7 @@ function CartItem({ id, title, price,Qts}) {
     //  let totalQuantity = 1      
     
     
-    // const [Qts, setQts] = useState('1');
+    const [totalQuantity, setTotalQuantity] = useState(Qts);
     // console.log(id);
 
     const dispatch = useDispatch();
@@ -17,13 +17,13 @@ function CartItem({ id, title, price,Qts}) {
     const onClickIncrease = (e) => {
         //   console.log(Qts);
         e.stopPropagation();
-        //  setQts(Qts + 1);
+       setTotalQuantity(totalQuantity + 1);
 
         dispatch(incrementQuantity(id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
-        
+        setTotalQuantity(totalQuantity - 1);
         dispatch(decrementQuantity(id))
         // setQts(Qts - 1);
     }
@@ -53,7 +53,7 @@ function CartItem({ id, title, price,Qts}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={Qts} />
+                                    <input type="text" value={totalQuantity} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
