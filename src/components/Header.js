@@ -39,7 +39,9 @@ export default function Header() {
                 
                 <li className="nav-item" >
                   
-                  <Link to="/card"> <i className='fa fa-shopping-bag' style={{position: "relative"}} /> <div 
+                  <Link to="/card"> <i className='fa fa-shopping-bag' style={{position: "relative",
+                  width: "3rem",
+                  height: "3rem",}} /> <div 
                   className="rounded-circle bg-danger 
                   d-flex justify-center align-item-center"
                   style={{
