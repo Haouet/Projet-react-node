@@ -41,22 +41,8 @@ export default function Header() {
                 
                 <li className="nav-item" >
                   
-                  <Link to="/card"> <i className='fa fa-shopping-bag'  />
-                  
-                  <div 
-                  className="rounded-circle bg-danger
-                  d-flex justify-center align-item-center"
-                  style={{
-                    position: "absolute",
-                    border: "solid",
-                    color: "white",
-                    width: "1.5rem",
-                    height: "1.5rem",
-                    bottom: 0,
-                    right: 0,
-                    transform: "translate(20%,20% )"
-
-                  }}>{items}</div> </Link>
+                  <Link to="/card"> <i className='fa fa-shopping-bag'  /> Card: {items} 
+                   </Link>
                  
                 </li>
                 
