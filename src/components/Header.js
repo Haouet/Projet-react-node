@@ -54,7 +54,7 @@ export default function Header() {
                     height: "1.5rem",
                     bottom: 0,
                     right: 0,
-                    transform: "translate(25%,25% )"
+                    transform: "translate(20%,20% )"
 
                   }}>{items}</div> </Link>
                  
