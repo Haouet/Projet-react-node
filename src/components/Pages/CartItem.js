@@ -46,7 +46,8 @@ function CartItem({ id, title, price}) {
                         </td>
                         <td className="shoping__cart__quantity">
                             <div className="quantity">
-                                <div className="pro-qty"><span className="dec qtybtn" onClick={onClickDecrease} >-</span>
+                                <div className="pro-qty">
+                                    <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
                                     <input type="text" value={Qts} onChange={(e) => {
                                     setQts(e.target.value)
                                 }}/>
