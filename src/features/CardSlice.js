@@ -37,7 +37,7 @@ name : "Card",
               
             state.Card= state.Card.filter((item) => item.id !== action.payload);
             
-           
+            
            
           },
           

@@ -37,14 +37,12 @@ export default function Header() {
             <div className='header__cart' >
               <ul>
                 
-                <li className="nav-item" >
-                  
-                  <Link to="/card"> <i className='fa fa-shopping-bag' style={{position: "relative",
+                <li className="nav-item" style={{position: "relative",
                   width: "3rem",
-                  height: "3rem",}} /></Link>
-                 
-                </li>
-                <li> <div 
+                  height: "3rem",}} >
+                  
+                  <Link to="/card"> <i className='fa fa-shopping-bag'  />
+                  <div 
                   className="rounded-circle bg-danger 
                   d-flex justify-center align-item-center"
                   style={{
@@ -56,7 +54,10 @@ export default function Header() {
                     right: 0,
                     transform: "translate(25%,25% )"
 
-                  }}>{items}</div> </li>
+                  }}>{items}</div> </Link>
+                 
+                </li>
+                
               </ul>
 
             </div>
