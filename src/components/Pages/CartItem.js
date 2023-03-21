@@ -2,17 +2,12 @@ import { removeItem, decrementQuantity, incrementQuantity } from '../../features
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import formatCurrency from '../formatCurrency';
-function CartItem({ id, title, price}) {
-    const cart = useSelector((state) => state.Card.Card.Qts);
+function CartItem({ id, title, price,Qts}) {
+    const cart = useSelector((state) => state.Card.Card);
 
-    // const getTotal = () => {
-    //     let totalQuantity = 0       
-    //     cart.forEach(item => {
-    //         totalQuantity = item.Qts
-            
-    //     })
-    //     return { totalQuantity }
-    // }
+    
+    //  let totalQuantity = 1      
+    
     
     // const [Qts, setQts] = useState('1');
     // console.log(id);
@@ -58,7 +53,7 @@ function CartItem({ id, title, price}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={cart.Qts} />
+                                    <input type="text" value={Qts} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
