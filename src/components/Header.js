@@ -44,10 +44,12 @@ export default function Header() {
                   <Link to="/card"> <i className='fa fa-shopping-bag'  />
                   
                   <div 
-                 
+                  className="rounded-circle text-info
+                  d-flex justify-center align-item-center"
                   style={{
                     position: "absolute",
-                    color: "red",
+                    border: "solid",
+                    color: '#7fad39',
                     width: "1.5rem",
                     height: "1.5rem",
                     bottom: 0,
