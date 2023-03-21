@@ -6,7 +6,7 @@ function CartItem({ id, title, price}) {
     const cart = useSelector((state) => state.Card.Card);
 
     const getTotal = () => {
-        let totalQuantity = 1
+        let totalQuantity = 0
        
         cart.forEach(item => {
             totalQuantity += item.Qts
