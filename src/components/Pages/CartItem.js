@@ -23,9 +23,14 @@ function CartItem({ id, title, price,Qts}) {
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
+        if (totalQuantity > 0) {
         setTotalQuantity(totalQuantity - 1);
+        
         dispatch(decrementQuantity(id))
-        // setQts(Qts - 1);
+    }else{
+        setTotalQuantity(totalQuantity);
+    }
+    
     }
     const Remove = () => {
         dispatch(removeItem(id))
