@@ -49,7 +49,7 @@ export default function Header() {
                   style={{
                     position: "absolute",
                     border: "solid",
-                    color: '#7fad39',
+                    color: "white",
                     width: "1.5rem",
                     height: "1.5rem",
                     bottom: 0,
