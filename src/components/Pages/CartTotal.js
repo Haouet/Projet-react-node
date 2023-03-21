@@ -1,6 +1,7 @@
 
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import formatCurrency from './formatCurrency';
 export const CartTotal = () => {
 
     const cart = useSelector((state) => state.Card.Card);
@@ -22,7 +23,8 @@ export const CartTotal = () => {
                     <h5>Cart Total</h5>
                     <ul>
                         <li>Total Qts <span>({getTotal().totalQuantity} )</span></li>
-                        <li>Total <span>${getTotal().totalPrice}</span></li>
+                        <li>Total <span>{formatCurrency(getTotal().totalPrice)}</span></li>
+                        
                     </ul>
                     <button className="primary-btn" ><Link to={`/checkout`} >PROCEED TO CHECKOUT</Link></button>
                 </div>
