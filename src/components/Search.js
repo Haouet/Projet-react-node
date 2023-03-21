@@ -48,7 +48,7 @@ export default function Search() {
             <section className="col-lg-12">
                 <div className="">
                     <div className="row">
-                        <div className="col-lg-12">                       
+                        <div className="col">                       
                                 {loading && <div> Loading </div>}
                                 {!loading   &&  (
                                     <div className='wrapper'>                                                                            
