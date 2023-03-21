@@ -2,10 +2,10 @@ import { removeItem, decrementQuantity, incrementQuantity } from '../../features
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 
-function CartItem({ id, title, price}) {
+function CartItem({ id, title, price, Qts}) {
     const cart = useSelector((state) => state.Card.Card);
     
-    const [Qts, setQts] = useState('1');
+    // const [Qts, setQts] = useState('1');
     // console.log(id);
 
     const dispatch = useDispatch();
@@ -49,7 +49,7 @@ function CartItem({ id, title, price}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={cart.Qts} />
+                                    <input type="text" value={Qts} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
