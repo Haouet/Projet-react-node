@@ -41,7 +41,14 @@ export default function Header() {
                 
                 <li className="nav-item" >
                   
-                  <Link to="/card"> <i className='fa fa-shopping-bag'  /> Card: {items} 
+                  <Link to="/card"> <span  style={{
+                    
+                    color: "white",
+                    width: "1.5rem",
+                    height: "1.5rem",
+                   
+
+                  }}>Card: {items} </span>  <i className='fa fa-shopping-bag'  /> 
                    </Link>
                  
                 </li>
