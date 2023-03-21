@@ -41,13 +41,13 @@ export default function Header() {
                   width: "3rem",
                   height: "3rem",}} >
                   
-                  <Link to="/card"> <i class="bi bi-cart"></i>
-                 
-                  <div 
+                  <Link to="/card"> <i className='fa fa-shopping-bag'  />
                   
+                  <div 
+                 
                   style={{
                     position: "absolute",
-                    color: "green",
+                    color: "red",
                     width: "1.5rem",
                     height: "1.5rem",
                     bottom: 0,
