@@ -15,7 +15,7 @@ function Home() {
                         <Categorie />
                         <div className='col-lg-9'>                            
                             <Search />
-                            <Category/>
+                            <Category />
                         </div>
                     </div>
                 </div>
