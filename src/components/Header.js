@@ -41,7 +41,10 @@ export default function Header() {
                   
                   <Link to="/card"> <i className='fa fa-shopping-bag' style={{position: "relative",
                   width: "3rem",
-                  height: "3rem",}} /> <div 
+                  height: "3rem",}} /></Link>
+                 
+                </li>
+                <li> <div 
                   className="rounded-circle bg-danger 
                   d-flex justify-center align-item-center"
                   style={{
@@ -53,9 +56,7 @@ export default function Header() {
                     right: 0,
                     transform: "translate(25%,25% )"
 
-                  }}>{items}</div> </Link>
-                 
-                  </li>
+                  }}>{items}</div> </li>
               </ul>
 
             </div>
