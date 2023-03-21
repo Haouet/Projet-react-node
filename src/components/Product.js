@@ -30,7 +30,7 @@ export default function Product({ _id, title, price, description, images
 
         <div className='row featured__filter' id={_id} >
             <div className='' >
-                <div className='col-sm-4'>
+                <div className=''>
                     <br/>
                     <Link to={`/details/${_id}`} >
                         <div className='featured__item__pic set-bg' data-setbg={thumbnail
