@@ -30,9 +30,12 @@ export default function Card() {
                                         </tr>
                                     </thead> 
                                 </table>
-                                {data?.map(item => (
+                                {(cart.length > 0) ? (
+                                    
+                                data?.map(item => (
                                     <CartItem key={item.id} {...item} />
-                                ))}
+                                ))
+                                ):  'There is no item !'}
                         
 
 
