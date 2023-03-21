@@ -27,7 +27,7 @@ export default function Header() {
                 <Link to="/about" className="nav-link">About Us</Link>
                 </li>
                 <li className="nav-item">                  
-                  <Link to="/contact" className="nav-link" >Contact Us Qts = {Qts}</Link>
+                  <Link to="/contact" className="nav-link" >Contact Us </Link>
                 </li>                
               </ul>
             </div>
@@ -38,7 +38,7 @@ export default function Header() {
                 
                 <li className="nav-item">
                   
-                  <Link to="/card"><i className='fa fa-shopping-bag' /></Link>
+                  <Link to="/card"><i className='fa fa-shopping-bag' />Qts = {Qts}</Link>
                  
                   </li>
               </ul>

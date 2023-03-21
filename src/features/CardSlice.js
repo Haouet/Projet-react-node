@@ -4,7 +4,7 @@ name : "Card",
  initialState: {
  
   Card: [],
-  qts: 0,
+  Qts : 0
   
 }, 
     reducers: {
