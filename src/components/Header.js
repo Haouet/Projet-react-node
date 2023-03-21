@@ -37,9 +37,9 @@ export default function Header() {
             <div className='header__cart' >
               <ul>
                 
-                <li className="nav-item" style={{position: "relative"}}>
+                <li className="nav-item" >
                   
-                  <Link to="/card"> <i className='fa fa-shopping-bag' /> <div 
+                  <Link to="/card"> <i className='fa fa-shopping-bag' style={{position: "relative"}} /> <div 
                   className="rounded-circle bg-danger 
                   d-flex justify-center align-item-center"
                   style={{
