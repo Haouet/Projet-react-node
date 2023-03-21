@@ -1,6 +1,7 @@
 import Categorie from '../Categorie';
 
 import Search from '../Search';
+import Category from './Category';
 import Banner from './Elements/Banner';
 
 
@@ -13,6 +14,7 @@ function Home() {
                     <div className='row'>
                         <Categorie />
                         <div className='col-lg-9'>
+                            <Category/>
                             <Search />
                         </div>
                     </div>
