@@ -13,14 +13,15 @@ function CartItem({ id, title, price}) {
     const onClickIncrease = (e) => {
         //   console.log(Qts);
         e.stopPropagation();
-         setQts(Qts + 1);
+        //  setQts(Qts + 1);
 
         dispatch(incrementQuantity(id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
-        setQts(Qts - 1);
+        
         dispatch(decrementQuantity(id, Qts))
+        // setQts(Qts - 1);
     }
     const Remove = () => {
         dispatch(removeItem(id))
@@ -48,7 +49,7 @@ function CartItem({ id, title, price}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={Qts} />
+                                    <input type="text" value={cart.Qts} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
