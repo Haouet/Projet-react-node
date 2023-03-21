@@ -34,7 +34,7 @@ export default function Header() {
             </div>
           </div>
           <div className='col-lg-3'>
-            <div className='header__cart'>
+            <div className='header__cart' style={{position: "relative"}}>
               <ul>
                 
                 <li className="nav-item">
