@@ -4,8 +4,9 @@ import React, { useState, useEffect } from 'react';
 import formatCurrency from '../formatCurrency';
 function CartItem({ id, title, price}) {
     const cart = useSelector((state) => state.Card.Card);
+
     const getTotal = () => {
-        let totalQuantity = 0
+        let totalQuantity = 1
        
         cart.forEach(item => {
             totalQuantity += item.Qts
