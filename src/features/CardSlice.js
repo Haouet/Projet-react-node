@@ -4,7 +4,7 @@ name : "Card",
  initialState: {
  
   Card: [],
-  Qts : 0
+  
   
 }, 
     reducers: {
@@ -17,7 +17,7 @@ name : "Card",
             if (itemInCart) {
               itemInCart.Qts++;
             } else {
-              state.Card.push({ ...action.payload,Qts: 1 });
+              state.Card.push({ ...action.payload, Qts: 1 });
               
             }
           },
