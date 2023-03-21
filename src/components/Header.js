@@ -3,9 +3,11 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from './logo.png';
 import './Header.css';
+import { useSelector } from "react-redux";
 
 export default function Header() {
-
+  const Product = useSelector((state) => state.Card.Card);
+  const items = (Product.length )
   return (
     <>
       <Navbar bg="white" variant="light">
@@ -37,7 +39,7 @@ export default function Header() {
                 
                 <li className="nav-item">
                   
-                  <Link to="/card"><i className='fa fa-shopping-bag' /></Link>
+                  <Link to="/card"><i className='fa fa-shopping-bag' /> {items}</Link>
                  
                   </li>
               </ul>

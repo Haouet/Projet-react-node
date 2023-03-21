@@ -1,8 +1,8 @@
 import { removeItem, decrementQuantity, incrementQuantity } from '../../features/CardSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
-
-function CartItem({ id, title, price, Qts}) {
+import formatCurrency from '../formatCurrency';
+function CartItem({ id, title, price}) {
     const cart = useSelector((state) => state.Card.Card);
     const getTotal = () => {
         let totalQuantity = 0
@@ -52,7 +52,7 @@ function CartItem({ id, title, price, Qts}) {
                             <h5 >{title}</h5>
                         </td>
                         <td className="shoping__cart__price">
-                            ${price}
+                            {formatCurrency(price)}
                         </td>
                         <td className="shoping__cart__quantity">
                             <div className="quantity">
