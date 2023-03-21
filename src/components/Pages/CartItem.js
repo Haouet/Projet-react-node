@@ -20,7 +20,7 @@ function CartItem({ id, title, price, Qts}) {
     const onClickDecrease = (e) => {
         e.stopPropagation();
         
-        dispatch(decrementQuantity(id, Qts))
+        dispatch(decrementQuantity(id))
         // setQts(Qts - 1);
     }
     const Remove = () => {
