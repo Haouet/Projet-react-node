@@ -41,13 +41,13 @@ export default function Header() {
               
                  <span  style={{
                     
-                    color: "white",
+                    
                     width: "1.5rem",
                     height: "1.5rem",
                     right: 0,
                     
 
-                  }}>{items} </span> </li>
+                  }}>Card: {items}</span> </li>
                    <li className="nav-item" > <Link to="/card"> <i className='fa fa-shopping-bag'  /> 
                    </Link>
                  
