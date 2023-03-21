@@ -4,6 +4,15 @@ import React, { useState, useEffect } from 'react';
 
 function CartItem({ id, title, price, Qts}) {
     const cart = useSelector((state) => state.Card.Card);
+    const getTotal = () => {
+        let totalQuantity = 0
+       
+        cart.forEach(item => {
+            totalQuantity += item.Qts
+            
+        })
+        return { totalQuantity }
+    }
     
     // const [Qts, setQts] = useState('1');
     // console.log(id);
@@ -49,7 +58,7 @@ function CartItem({ id, title, price, Qts}) {
                             <div className="quantity">
                                 <div className="pro-qty">
                                     <span className="dec qtybtn" onClick={onClickDecrease} >-</span>
-                                    <input type="text" value={Qts} />
+                                    <input type="text" value={getTotal().totalQuantity} />
                                     <span className="inc qtybtn" onClick={onClickIncrease}>+</span></div>
                             </div>
                         </td>
