@@ -37,7 +37,8 @@ export default function Header() {
               <ul>
                 
                 <li className="nav-item">
-                  <Link to="/card"><i className='fa fa-shopping-bag' />{Qts}</Link>
+                  Qts = {Qts}
+                  <Link to="/card"><i className='fa fa-shopping-bag' /></Link>
                  
                   </li>
               </ul>
