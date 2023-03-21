@@ -13,9 +13,9 @@ function Home() {
                 <div className='container'>
                     <div className='row'>
                         <Categorie />
-                        <div className='col-lg-9'>
-                            <Category/>
+                        <div className='col-lg-9'>                            
                             <Search />
+                            <Category/>
                         </div>
                     </div>
                 </div>
