@@ -41,14 +41,13 @@ export default function Header() {
                   width: "3rem",
                   height: "3rem",}} >
                   
-                  <Link to="/card"> <i className='fa fa-shopping-bag'  />
-                  <br/>
+                  <Link to="/card"> <i class="bi bi-cart"></i>
+                 
                   <div 
-                  className="rounded-circle bg-danger 
-                  d-flex justify-center align-item-center"
+                  
                   style={{
                     position: "absolute",
-                    color: "white",
+                    color: "green",
                     width: "1.5rem",
                     height: "1.5rem",
                     bottom: 0,
