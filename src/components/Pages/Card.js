@@ -26,7 +26,7 @@ export default function Card() {
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Delete</th>
-                                            <th></th>
+                                            
                                         </tr>
                                     </thead> 
                                 </table>
