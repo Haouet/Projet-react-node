@@ -3,10 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from './logo.png';
 import './Header.css';
-import { useSelector } from "react-redux";
+
 export default function Header() {
-  const Qts = useSelector((state) => state.Card.Card);
-  console.log(Qts);
+
   return (
     <>
       <Navbar bg="white" variant="light">

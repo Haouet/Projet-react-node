@@ -13,13 +13,13 @@ function CartItem({ id, title, price}) {
     const onClickIncrease = (e) => {
         //   console.log(Qts);
         e.stopPropagation();
-        // setQts(Qts + 1);
+         setQts(Qts + 1);
 
         dispatch(incrementQuantity(id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
-        // setQts(Qts - 1);
+        setQts(Qts - 1);
         dispatch(decrementQuantity(id, Qts))
     }
     const Remove = () => {
