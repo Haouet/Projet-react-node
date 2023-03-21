@@ -42,6 +42,7 @@ export default function Header() {
                   height: "3rem",}} >
                   
                   <Link to="/card"> <i className='fa fa-shopping-bag'  />
+                  <br/>
                   <div 
                   className="rounded-circle bg-danger 
                   d-flex justify-center align-item-center"
