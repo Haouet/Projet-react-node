@@ -40,12 +40,12 @@ function Home() {
                         </div>
                      <div>
                 </div>
-            <section className="col-lg-12">
+            <section className='container'>
             {loading && <div> Loading </div>}
                             <SearchElement />
                 
-                <div class="row">
-                        <div class="col-md-4 mt-2">                       
+                <div className='row'>
+                        <div className='col-md-4 mt-2'>                       
                                 
                                 {!loading   &&  (
                                     <div className='wrapper'>                                                                            
