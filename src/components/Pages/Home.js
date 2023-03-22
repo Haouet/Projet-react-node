@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import axios from 'axios';
-import Slider from './Pages/Elements/Slider';
+import Slider from '../Slider';
 import Search from '../Search';
 import SearchElement from '../SearchElement';
 
