@@ -9,11 +9,11 @@ export default function Search() {
 
 
     const [Search, setSearch] = useState("");
-    
+    const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     
         const fetchData = async () => {
-            
+            setLoading(true);
             try {
                 const { data: response } = await axios.get(baseURL);
                 console.log(response.data);
@@ -22,7 +22,7 @@ export default function Search() {
             } catch (error) {
                 console.error(error.message);
             }
-           
+            setLoading(false);
         }
 
 
@@ -47,11 +47,16 @@ export default function Search() {
                 
             
             </div>
-            
+            <div className="col-lg-12">
+            {loading && <div> Loading </div>}
+                                {!loading   &&  (
+                                     <div className='wrapper'>
             {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
                                 <Product key={item._id} {...item} />
                             ))}
-           
+                            </div>
+                            )}
+            </div>
 
 
 
