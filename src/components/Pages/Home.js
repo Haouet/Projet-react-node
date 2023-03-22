@@ -55,10 +55,11 @@ function Home() {
                             </div>
               
             </div>                      
-           
+            <br/>
                 
             <div className='container'>
-            <Banner/> </div>
+            <Banner/> 
+            </div>
             <br/>
 
         </>

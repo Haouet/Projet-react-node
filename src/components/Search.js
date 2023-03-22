@@ -25,9 +25,10 @@ export default function Search() {
 
                 </div>
                 <Info />
-            </div>
+            
             <div>
                 <Slider />
+            </div>
             </div>
             <SearchElement search={Search} />
 
