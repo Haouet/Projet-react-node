@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import axios from 'axios';
-import '../Product.css'
+
 import Search from '../Search';
 import SearchElement from '../SearchElement';
 
@@ -42,25 +42,18 @@ function Home() {
                 </div>
              </div>
             <div className='container'>
-            {loading && <div> Loading </div>}
-                           
-              {!loading   &&  (
-                <div className='row'>
-               
-                        <div className='col-md-4 mt-2'>                       
-                                
-                               
-                                                                                                               
-                                        {data?.map(item => (
-                                            <Product key={item._id} {...item} />
-                                        ))}
-                                   
-                                
-                               
-                        </div>
-                        
-                    </div>
-               )}
+          
+                 <div className="col-lg-12">
+                            {loading && <div> Loading </div>}
+                            {!loading && (
+                                <div className='wrapper'>
+                                    {data.map(item => (
+                                        <Product key={item._id} {...item} />
+                                    ))}
+                                </div>
+                            )}
+                            </div>
+              
             </div>                      
            
                 
