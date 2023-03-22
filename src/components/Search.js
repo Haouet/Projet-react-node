@@ -1,8 +1,5 @@
 import React, { useState} from 'react';
-
-import axios from 'axios';
 import './Search.css';
-import Product from './Product';
 import Slider from './Pages/Elements/Slider';
 import Info from './Info';
 import SearchElement from './SearchElement';

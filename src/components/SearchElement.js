@@ -1,4 +1,6 @@
 import React, { useState, useEffect  } from 'react'
+import axios from 'axios';
+import Product from './Product';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function SearchElement(Search) {
     const [loading, setLoading] = useState(true);
