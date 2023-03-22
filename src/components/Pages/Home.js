@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import axios from 'axios';
-import '../Product.css';
+
 import Search from '../Search';
 import SearchElement from '../SearchElement';
 
@@ -40,7 +40,7 @@ function Home() {
                         </div>
                      <div>
                 </div>
-                <section className="col-lg-12">
+            <section className="col-lg-12">
                             <SearchElement />
                 
                 <div class="row">

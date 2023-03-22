@@ -27,55 +27,44 @@ export default function Product({ _id, title, price, description, images
 
 
     return (
+        <div className="card" id={_id}>
+            <div className="card-body">
+                <div className="card-img-actions">
+                    <Link to={`/details/${_id}`} >
+                        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80)" className="card-img img-fluid" width="96" height="350" alt="" />
 
+                    </Link>
 
-        
-         
-             
-             <div class="card"  id={_id}>
-                                 <div class="card-body">
-                                     <div class="card-img-actions">
-                                     <Link to={`/details/${_id}`} >
-                                             <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80)" class="card-img img-fluid" width="96" height="350" alt="" />
-                                           
-                                             </Link> 
+                </div>
+            </div>
 
-                                     </div>
-                                 </div>
+            <div className="card-body bg-light text-center">
+                <div className="mb-2">
+                    <h6 className="font-weight-semibold mb-2">
+                        <Link to={`/details/${_id}`} >{title}</Link>
+                    </h6>
 
-                                 <div class="card-body bg-light text-center">
-                                     <div class="mb-2">
-                                         <h6 class="font-weight-semibold mb-2">
-                                         <Link to={`/details/${_id}`} >{title}</Link>
-                                         </h6>
+                    <p>{description}</p>
+                </div>
 
-                                        <p>{description}</p>
-                                     </div>
+                <h3 className="mb-0 font-weight-semibold">{formatCurrency(price)}</h3>
 
-                                     <h3 class="mb-0 font-weight-semibold">{formatCurrency(price)}</h3>
+                <div>
+                    <i className="fa fa-star star"></i>
+                    <i className="fa fa-star star"></i>
+                    <i className="fa fa-star star"></i>
+                    <i className="fa fa-star star"></i>
+                </div>
 
-                                     <div>
-                                        <i class="fa fa-star star"></i>
-                                        <i class="fa fa-star star"></i>
-                                        <i class="fa fa-star star"></i>
-                                        <i class="fa fa-star star"></i>
-                                     </div>
+                <div className="text-muted mb-3">34 reviews</div>
 
-                                     <div class="text-muted mb-3">34 reviews</div>
+                <button type="button" className="btn bg-cart" onClick={handleCard}><i className="fa fa-cart-plus mr-2"></i> <Link to={`/card`} >
+                    SHOP NOW </Link>
 
-                                     <button type="button" class="btn bg-cart" onClick={handleCard}><i class="fa fa-cart-plus mr-2"></i> <Link to={`/card`} >
-                            SHOP NOW </Link> 
+                </button>
 
-                                   </button>
-
-                                 </div>
-             </div>
-
-
-                         
-       
-       
-
+            </div>
+        </div>
 
     )
 }
