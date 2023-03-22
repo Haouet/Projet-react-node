@@ -12,6 +12,7 @@ const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function Home() {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);

@@ -2,25 +2,8 @@ import React, { useState, useEffect  } from 'react'
 import axios from 'axios';
 import Product from './Product';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
-function SearchElement(Search) {
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const { data: response } = await axios.get(baseURL);
-                console.log(response.data);
-                setData(response.data);
-                
-            } catch (error) {
-                console.error(error.message);
-            }
-            setLoading(false);
-        }
-
-        fetchData();
-    }, []);
+function SearchElement({data}) {
+    
   return (
     <section className="col-lg-12">
                 
