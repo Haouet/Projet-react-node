@@ -47,6 +47,9 @@ function Home() {
             <div className='container'>
           
                  <div className="col-lg-12">
+                 <div class="section-title">
+                        <h2>Featured Product</h2>
+                    </div>
                             {loading && <div> Loading </div>}
                             {!loading && (
                                 <div className='wrapper'>
