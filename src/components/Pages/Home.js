@@ -46,17 +46,19 @@ function Home() {
                             <SearchElement />
                 
                 <div className='row'>
+                {!loading   &&  (
                         <div className='col-md-4 mt-2'>                       
                                 
-                                {!loading   &&  (
-                                    <div className='wrapper'>                                                                            
+                               
+                                                                                                               
                                         {data?.map(item => (
                                             <Product key={item._id} {...item} />
                                         ))}
-                                    </div>
-                                )}
+                                   
+                                
                                
                         </div>
+                        )}
                     </div>
                
             </div>                      
