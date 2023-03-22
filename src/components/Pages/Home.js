@@ -40,6 +40,7 @@ function Home() {
                         </div>
                      <div>
                 </div>
+             </div>
             <section className='container'>
             {loading && <div> Loading </div>}
                             <SearchElement />
@@ -63,7 +64,7 @@ function Home() {
                         </div>
                     </div>
                 
-            </div>
+           
             <Banner/>
             <br/>
 
