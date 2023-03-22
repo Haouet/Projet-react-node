@@ -5,6 +5,7 @@ import Search from '../Search';
 import SearchElement from '../SearchElement';
 import Category from './Category';
 import Banner from './Elements/Banner';
+import Product from '../Product';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 
 function Home() {
