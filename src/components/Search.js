@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import './Search.css';
-
+import Product from './Product';
 import Info from './Info';
-import SearchElement from './SearchElement';
+
 import axios from 'axios';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 export default function Search() {
 
 
     const [Search, setSearch] = useState("");
-
+    
+    const [data, setData] = useState([]);
     
         const fetchData = async () => {
             
@@ -46,6 +47,7 @@ export default function Search() {
                 
             
             </div>
+            
             {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
                                 <Product key={item._id} {...item} />
                             ))}
