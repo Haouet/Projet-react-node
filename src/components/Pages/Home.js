@@ -1,9 +1,9 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import axios from 'axios';
-import Slider from '../Slider';
+import Slider from './Elements/Slider';
 import Search from '../Search';
-import SearchElement from '../SearchElement';
+
 
 import Banner from './Elements/Banner';
 import Product from '../Product';
