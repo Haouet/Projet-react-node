@@ -48,15 +48,18 @@ export default function Search() {
             
             </div>
             <div className="col-lg-12">
-            {loading && <div> Loading </div>}
-                                {!loading   &&  (
-                                     <div className='wrapper'>
-            {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
-                                <Product key={item._id} {...item} />
-                            ))}
-                            </div>
-                            )}
-            </div>
+
+
+{loading && <div> Loading </div>}
+                    {!loading   &&  (
+                         <div className='wrapper'>
+{data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
+                    <Product key={item._id} {...item} />
+                ))}
+                </div>
+                )}
+</div>
+
 
 
 
