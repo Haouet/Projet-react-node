@@ -41,11 +41,12 @@ function Home() {
                      <div>
                 </div>
             <section className="col-lg-12">
+            {loading && <div> Loading </div>}
                             <SearchElement />
                 
                 <div class="row">
                         <div class="col-md-4 mt-2">                       
-                                {loading && <div> Loading </div>}
+                                
                                 {!loading   &&  (
                                     <div className='wrapper'>                                                                            
                                         {data?.map(item => (
