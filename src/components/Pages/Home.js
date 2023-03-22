@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import axios from 'axios';
-
+import Slider from './Pages/Elements/Slider';
 import Search from '../Search';
 import SearchElement from '../SearchElement';
 
@@ -39,6 +39,7 @@ function Home() {
                         <Search/>                         
                            
                         </div>
+                        <Slider />
                      </div>
                 </div>
              </div>

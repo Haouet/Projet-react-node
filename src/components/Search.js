@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Search.css';
-import Slider from './Pages/Elements/Slider';
+
 import Info from './Info';
 import SearchElement from './SearchElement';
 import axios from 'axios';
@@ -43,7 +43,7 @@ export default function Search() {
                 <Info />
             
             
-                <Slider />
+                
             
             </div>
             {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
