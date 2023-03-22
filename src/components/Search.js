@@ -47,8 +47,8 @@ export default function Search() {
             <Slider />            
             <section className="col-lg-12">
                 <div className="">
-                    <div className="row">
-                        <div className="col-sm-4">                       
+                <div class="row">
+                        <div class="col-md-4 mt-2">                       
                                 {loading && <div> Loading </div>}
                                 {!loading   &&  (
                                     <div className='wrapper'>                                                                            
