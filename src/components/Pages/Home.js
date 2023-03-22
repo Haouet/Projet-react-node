@@ -36,10 +36,11 @@ function Home() {
                     <div className='row'>
                         <Categorie />
                         <div className='col-lg-9'>   
-                        <Search/>                         
-                           
-                        </div>
+                        <Search/>   
+                        <br/>                      
                         <Slider />
+                        </div>
+                       
                      </div>
                 </div>
              </div>
