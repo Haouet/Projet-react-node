@@ -43,10 +43,10 @@ function Home() {
              </div>
             <div className='container'>
             {loading && <div> Loading </div>}
-                            <SearchElement />
-                
+                           
+              {!loading   &&  (
                 <div className='row'>
-                {!loading   &&  (
+               
                         <div className='col-md-4 mt-2'>                       
                                 
                                
@@ -58,9 +58,9 @@ function Home() {
                                 
                                
                         </div>
-                        )}
+                        
                     </div>
-               
+               )}
             </div>                      
            
                 

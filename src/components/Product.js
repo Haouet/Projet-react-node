@@ -27,7 +27,7 @@ export default function Product({ _id, title, price, description, images
 
 
     return (
-        <div className="card" id={_id}>
+        <div className="card">
             <div className="card-body">
                 <div className="card-img-actions">
                     <Link to={`/details/${_id}`} >
