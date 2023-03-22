@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 import axios from 'axios';
 import './Search.css';
 import Product from './Product';
 import Slider from './Pages/Elements/Slider';
 import Info from './Info';
-const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
+import SearchElement from './SearchElement';
+
 export default function Search() {
    
-    const [loading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
+  
     const [Search, setSearch] = useState("");
    
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const { data: response } = await axios.get(baseURL);
-                console.log(response.data);
-                setData(response.data);
-                
-            } catch (error) {
-                console.error(error.message);
-            }
-            setLoading(false);
-        }
-
-        fetchData();
-    }, []);
+   
 
     return (
             <>
@@ -46,24 +31,9 @@ export default function Search() {
             </div>
             <div>
             <Slider />       
-            </div>     
-            <section className="col-lg-12">
-                
-                <div class="row">
-                        <div class="col-md-4 mt-2">                       
-                                {loading && <div> Loading </div>}
-                                {!loading   &&  (
-                                    <div className='wrapper'>                                                                            
-                                        {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
-                                            <Product key={item._id} {...item} />
-                                        ))}
-                                    </div>
-                                )}
-                               
-                        </div>
-                    </div>
-               
-            </section>
+            </div>  
+            <SearchElement search={Search} />
+           
 
 
 
