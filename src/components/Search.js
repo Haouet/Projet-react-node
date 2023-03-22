@@ -44,9 +44,11 @@ export default function Search() {
             </div>
             <Info/>
             </div>
-            <Slider />            
+            <div>
+            <Slider />       
+            </div>     
             <section className="col-lg-12">
-                <div className="">
+                
                 <div class="row">
                         <div class="col-md-4 mt-2">                       
                                 {loading && <div> Loading </div>}
@@ -60,7 +62,7 @@ export default function Search() {
                                
                         </div>
                     </div>
-                </div>
+               
             </section>
 
 
