@@ -3437,7 +3437,7 @@ ol {
 	}
 }
 .wrapper {
-    display: grid;
+  display: flex;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
@@ -3487,11 +3487,11 @@ ol {
 }
 
 .star{
-        color: red;
+        color: #7fad39;
 }
 
 .bg-cart {
-    background-color:orange;
+    background-color:#7fad39;
     color:#fff;
 }
 
@@ -3501,7 +3501,7 @@ ol {
 }
 
 .bg-buy {
-    background-color:green;
+    background-color:#7fad39;
     color:#fff;
     padding-right: 29px;
 }
