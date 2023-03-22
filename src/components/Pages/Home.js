@@ -33,12 +33,14 @@ function Home() {
                 <div className='container'>
                     <div className='row'>
                         <Categorie />
-                        <div className='col-lg-9'>                            
+                        <div className='col-lg-9'>   
+                        <Search/>                         
+                           
+                        </div>
+                     <div>
+                </div>
+                <section className="col-lg-12">
                             <SearchElement />
-                            </div>
-                            <div>
-
-                            <section className="col-lg-12">
                 
                 <div class="row">
                         <div class="col-md-4 mt-2">                       
@@ -58,7 +60,7 @@ function Home() {
                             
                         </div>
                     </div>
-                </div>
+                
             </div>
             <Banner/>
             <br/>
