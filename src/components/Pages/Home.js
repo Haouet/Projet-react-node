@@ -1,6 +1,7 @@
-import Categorie from '../Categorie';
 import React, { useState, useEffect  } from 'react'
+import Categorie from '../Categorie';
 import axios from 'axios';
+import './Product.css';
 import Search from '../Search';
 import SearchElement from '../SearchElement';
 import Category from './Category';
