@@ -1,13 +1,12 @@
 import React, { useState, useEffect  } from 'react'
 import Categorie from '../Categorie';
 import Slider from './Elements/Slider';
-import Search from '../Search';
 import Banner from './Elements/Banner';
 import ProductFeatured from './ProductFeatured';
 
 import Product from './Product';
 import axios from 'axios';
-import { useState, useEffect } from "react";
+
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function Home() {
  
