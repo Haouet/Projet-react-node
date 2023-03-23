@@ -17,6 +17,8 @@ function Home() {
 
     const [showSearch, setShowSearch] = useState(false);
     const [search, setSearch] = useState("");
+    console.log(showSearch);
+    console.log(search);
     
     useEffect(() => {
         const fetchData = async () => {

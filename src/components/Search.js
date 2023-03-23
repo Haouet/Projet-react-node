@@ -6,8 +6,7 @@ import { SearchContext } from '../Contexts/SearchContext';
 
 export default function Search() {
     const {setSearch,setShowSearch} = useContext(SearchContext);
-    const showSearchClick = () => {
-      
+    const showSearchClick = () => {      
         setShowSearch(true); 
       
     }
@@ -22,7 +21,7 @@ export default function Search() {
             <div className='hero__search'>
                 <div className='hero__search__form'>
                     <form>
-                        <input type="text" label="search" placeholder="What do yo u need?" onChange={(e) => {
+                        <input type="text" label="search" placeholder="What do yo u need ?" onChange={(e) => {
                             setSearch(e.target.value)
                         }} />
                         <button type="submit" className='site-btn' onClick={showSearchClick}>SEARCH</button>
