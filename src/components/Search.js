@@ -13,22 +13,17 @@ export default function Search() {
         setShowSearch(true); 
       
     }
-
-    
-    
-    
-
     return (
         <>
 
             <div className='hero__search'>
                 <div className='hero__search__form'>
-                    <div className='form' >
+                    <form>
                         <input type="text" label="search"  placeholder="What do yo u need ?" onChange={(e) => {
                             setSearchText(e.target.value) 
                         }} />
                         <button type="submit" className='site-btn' onClick={showSearchClick}>SEARCH</button>
-                    </div>
+                    </form>
 
                 </div>
                 <Info />

@@ -33,12 +33,12 @@ function Home() {
              </div>
             <div className='container'>
             <SearchContext.Provider value={{search, setSearch,setShowSearch}}>
-            { showSearch
+            { !showSearch
             ? (<SearchElement/> ) 
             : (
-                 <ProductFeatured/>
+                <ProductFeatured/>
               )}
-                   </SearchContext.Provider>
+            </SearchContext.Provider>
               
             </div>                      
             <br/>
