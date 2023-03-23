@@ -35,9 +35,9 @@ function Home() {
     const handleSubmit = (e) => {
         e.preventDefault(); 
          setShowSearch(true);         
-      
+        search.current.value = '';
     }
-    console.log(search);
+    console.log(data);
     return (
         <>
             <div className='hero'>
@@ -75,13 +75,13 @@ function Home() {
                 (data.length > 0) ? (    
      
                     <div className='wrapper'>
-                      {data.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
+                      {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
                         <Product key={item._id} {...item} />
                       ))}
                     </div>
                
             
-                  ):  'Product is no  existe  !'         
+                  ):  `Product is no  existe Title  ! ${search}  `      
 
             ) 
             : (
