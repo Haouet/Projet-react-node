@@ -61,7 +61,7 @@ function Home() {
                            <Info />
                         <br/>                      
                         <Slider />
-                        </div>
+                      </div>
                        
                     </div>
                 </div>
