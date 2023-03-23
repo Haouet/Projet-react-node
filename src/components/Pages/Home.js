@@ -75,7 +75,7 @@ function Home() {
             { showSearch
             ? (
 
-                (data?.length > 0) ? (    
+                (data.length > 0) ? (    
      
                     <div className='wrapper'>
                       {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
