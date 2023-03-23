@@ -37,6 +37,10 @@ export default function Header() {
             <div className='header__cart' >
               <ul>
                 
+                
+                   <li className="nav-item" > <Link to="/card"> <i className='fa fa-shopping-bag'  /> 
+                   </Link>                 
+                </li>
                 <li className="nav-item" >
               
                  <span  style={{
@@ -47,11 +51,7 @@ export default function Header() {
                     right: 0,
                     
 
-                  }}>Card: {items}</span> </li>
-                   <li className="nav-item" > <Link to="/card"> <i className='fa fa-shopping-bag'  /> 
-                   </Link>
-                 
-                </li>
+                  }}>item:: {items}</span> </li>
                 
               </ul>
 
