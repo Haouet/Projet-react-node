@@ -43,9 +43,9 @@ function Home() {
         <>
             <div className='hero'>
                 <div className='container'>
-                    
+                <Categorie />
                     <div className='row'>
-                        <Categorie />
+                        
                       <div className='col-lg-9'>   
                        
                         <div className='hero__search'>
@@ -56,8 +56,7 @@ function Home() {
                                             }} />
                                             <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
-                             </div>
-                        
+                             </div>                        
                            <Info />
                         </div>
                         <br/>                      
