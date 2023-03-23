@@ -32,7 +32,7 @@ function SearchElement() {
       {loading && <div> Loading </div>}
       {!loading && (
         <div className='wrapper'>
-          {data?.filter((product) => product.title.toLowerCase().includes(Search)).map(item => (
+          {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
             <Product key={item._id} {...item} />
           ))}
         </div>
