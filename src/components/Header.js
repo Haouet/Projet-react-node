@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Logo from './logo.png';
 import './Header.css';
 import { useSelector } from "react-redux";
+import Info from "./Info";
 
 export default function Header() {
   const Product = useSelector((state) => state.Card.Card);
@@ -33,6 +34,8 @@ export default function Header() {
               </ul>
             </div>
           </div>
+          <div className='col-lg-3'><Info /></div>
+          
           <div className='col-lg-3'>
             <div className='header__cart' >
               <ul>
