@@ -10,9 +10,7 @@ import axios from 'axios';
 
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function Home() {
- 
-
-    const [showSearch, setShowSearch] = useState(false);
+     const [showSearch, setShowSearch] = useState(false);
     const [search, setSearch] = useState("");
     console.log(showSearch);
     console.log(search);
@@ -32,11 +30,12 @@ function Home() {
         setLoading(false);
     }
 
-    }, [search]);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
          setShowSearch(true); 
+        
       
     }
     return (
@@ -51,7 +50,7 @@ function Home() {
                                     
                                     <div className='hero__search__form'>
                                         <form onSubmit={handleSubmit}>
-                                            <input type="text" label="search"  placeholder="What do yo u need ?" onChange={(e) => {
+                                            <input type="text" label="search"  value={search}  placeholder="What do yo u need ?" onChange={(e) => {
                                                 setSearch(e.target.value) 
                                             }} />
                                             <button type="submit" className='site-btn' >SEARCH</button>
