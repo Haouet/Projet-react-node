@@ -22,8 +22,9 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        fetchData();  
-        setShowSearch(true);       
+         
+         fetchData();
+         setShowSearch(true);         
         
     }
     const fetchData = async () => {
@@ -46,8 +47,7 @@ function Home() {
                     
                     <div className='row'>
                         <Categorie />
-                      <div className='col-lg-9'>   
-                      <div className='col-lg-6'> 
+                      <div className='col-lg-9'>                        
                         <div className='hero__search'>
                              <div className='hero__search__form'>
                                         <form onSubmit={handleSubmit}>
@@ -57,15 +57,12 @@ function Home() {
                                             <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
 
-                             </div>
-                             </div>
-                             <div className='col-lg-3'> 
+                             </div> 
                                <Info />
-                               </div>  
                          </div>  
                         <br/>                      
                         <Slider />
-                        </div>
+                    </div>
                        
                      </div>
                 </div>
