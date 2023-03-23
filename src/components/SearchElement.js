@@ -27,11 +27,10 @@ function SearchElement() {
 
   return (
     <div className="col-lg-12">
-      <SearchContext.Consumer>
-       
-           
-           {loading && <div> Loading </div>}
+      {loading && <div> Loading </div>}
        {!loading && (
+      
+           
       (data.length > 0) ? (    
      
         <div className='wrapper'>
@@ -41,11 +40,10 @@ function SearchElement() {
         </div>
    
 
-      ):  'dont existe  !' )}
+      ):  'Product is no  existe  !'
       
 
-      
-      </SearchContext.Consumer>
+       )}
     </div>
   )
 }

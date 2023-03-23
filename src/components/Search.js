@@ -15,8 +15,9 @@ export default function Search() {
     }
     return (
         <>
-
+           
             <div className='hero__search'>
+              <SearchContext.Provider value={{search, setSearch,setShowSearch}}>
                 <div className='hero__search__form'>
                     <form>
                         <input type="text" label="search"  placeholder="What do yo u need ?" onChange={(e) => {
@@ -26,6 +27,7 @@ export default function Search() {
                     </form>
 
                 </div>
+                </SearchContext.Provider>
                 <Info />
             
             
