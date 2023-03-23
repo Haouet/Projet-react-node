@@ -28,7 +28,7 @@ function SearchElement() {
   return (
     <div className="col-lg-12">
       <SearchContext.Consumer>
-        {(search) => {
+       
            
            {loading && <div> Loading </div>}
        {!loading && (
@@ -44,7 +44,6 @@ function SearchElement() {
       ):  'dont existe  !' )}
       
 
-        }}
       
       </SearchContext.Consumer>
     </div>
