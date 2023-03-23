@@ -1,7 +1,7 @@
 import { SearchContext } from "../Contexts/SearchContext"
 import Product from './Product';
 import axios from 'axios';
-import { useState, useEffect  } from "react";
+import { useState, useEffect, useContext  } from "react";
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function SearchElement() {
   const {search} = useContext(SearchContext);
