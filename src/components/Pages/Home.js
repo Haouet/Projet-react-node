@@ -57,8 +57,9 @@ function Home() {
                                             <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
                              </div>
-                        </div>
+                        
                            <Info />
+                        </div>
                         <br/>                      
                         <Slider />
                       </div>
