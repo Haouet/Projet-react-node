@@ -20,6 +20,7 @@ function Home() {
         <>
             <div className='hero'>
                 <div className='container'>
+                    
                     <div className='row'>
                         <Categorie />
                         <div className='col-lg-9'>   
@@ -33,7 +34,7 @@ function Home() {
              </div>
             <div className='container'>
             <SearchContext.Provider value={{search, setSearch,setShowSearch}}>
-            { !showSearch
+            { showSearch
             ? (<SearchElement/> ) 
             : (
                 <ProductFeatured/>
