@@ -5,7 +5,7 @@ import Banner from './Elements/Banner';
 import ProductFeatured from './ProductFeatured';
 import '../Search.css';
 import Info from '../Info';
-import Product from './Product';
+import Product from '../Product';
 import axios from 'axios';
 
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
