@@ -27,17 +27,20 @@ function SearchElement() {
 
   return (
     <div className="col-lg-12">
-
-
-      {loading && <div> Loading </div>}
-      {!loading && (
+       {loading && <div> Loading </div>}
+       {!loading && (
+      (data.length > 0) ? (    
+     
         <div className='wrapper'>
           {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
-            // <Product key={item._id} {...item} />
-            {search}
+            <Product key={item._id} {...item} />
           ))}
         </div>
-      )}
+   
+
+      ):  'dont existe  !' )}
+      
+      
     </div>
   )
 }
