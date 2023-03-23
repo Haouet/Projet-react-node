@@ -48,6 +48,7 @@ function Home() {
                     <div className='row'>
                         <Categorie />
                       <div className='col-lg-9'>   
+                      <div className='col-lg-6'> 
                         <div className='hero__search'>
                              <div className='hero__search__form'>
                                         <form onSubmit={handleSubmit}>
@@ -58,7 +59,10 @@ function Home() {
                                         </form>
 
                              </div>
+                             </div>
+                             <div className='col-lg-3'> 
                                <Info />
+                               </div>  
                          </div>  
                         <br/>                      
                         <Slider />
@@ -72,7 +76,7 @@ function Home() {
             { showSearch
             ? (
 
-                (data.length > 0) ? (    
+                (data?.length > 0) ? (    
      
                     <div className='wrapper'>
                       {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
@@ -81,7 +85,7 @@ function Home() {
                     </div>
                
             
-                  ):  `Product is no  existe Title  ! ${search}  `      
+                  ):  `Product is no  existe  ! ${search}  `      
 
             ) 
             : (
