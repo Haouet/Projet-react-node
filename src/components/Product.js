@@ -62,20 +62,7 @@ export default function Product({ _id, title, price, description, images
                     SHOP NOW </Link>
 
                 </button>
-                <div class="col-lg-4">
-                                    <div class="product__discount__item">
-                                        <div class="product__discount__item__pic set-bg"
-                                            >
-                                           
-                                            <ul class="product__item__pic__hover">
-                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
-                                        </div>
-                                       
-                                    </div>
-                                </div>
+                
 
             </div>
 
