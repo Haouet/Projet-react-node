@@ -7,11 +7,16 @@ import Search from '../Search';
 
 import Banner from './Elements/Banner';
 import Product from '../Product';
+import SearchElement from '../SearchElement';
+import { SearchContext } from '../../Contexts/SearchContext';
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 
 function Home() {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+
+    const [showSearch, setShowSearch] = useState(false);
+    const [search, setSearch] = useState("");
     
     useEffect(() => {
         const fetchData = async () => {
@@ -45,8 +50,11 @@ function Home() {
                 </div>
              </div>
             <div className='container'>
-          
+            <SearchContext.Provider value={{search, setSearch,setShowSearch}}>
+            {showSearch ? <SearchElement/> : (
                  <div className="col-lg-12">
+
+               
                  <div class="section-title">
                         <h2>Featured Product</h2>
                     </div>
@@ -58,7 +66,11 @@ function Home() {
                                     ))}
                                 </div>
                             )}
-                            </div>
+
+
+                        </div>
+                   )}
+                   </SearchContext.Provider>
               
             </div>                      
             <br/>
