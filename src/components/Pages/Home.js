@@ -56,19 +56,14 @@ function Home() {
                                             }} />
                                             <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
-
                              </div>
-                             </div>
-                            
-                              
-                               <Info />
-                            
-                          
+                        </div>
+                           <Info />
                         <br/>                      
                         <Slider />
                         </div>
                        
-                     </div>
+                    </div>
                 </div>
              </div>
             <div className='container'>
