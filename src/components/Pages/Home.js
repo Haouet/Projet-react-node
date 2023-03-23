@@ -13,7 +13,7 @@ function Home() {
      const [showSearch, setShowSearch] = useState(false);
     const [search, setSearch] = useState("");
     console.log(showSearch);
-   
+    console.log(search);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -22,15 +22,14 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-         setShowSearch(true); 
-         fetchData();        
+        
+        setShowSearch(true);       
         
     }
     const fetchData = async () => {
         setLoading(true);
         try {
             const { data: response } = await axios.get(baseURL);
-            console.log(response.data);
             setData(response.data);
             
         } catch (error) {
@@ -39,7 +38,7 @@ function Home() {
         setLoading(false);
     }
 
-    console.log(data);
+   
     return (
         <>
             <div className='hero'>
