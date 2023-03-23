@@ -33,7 +33,8 @@ function SearchElement() {
       {!loading && (
         <div className='wrapper'>
           {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
-            <Product key={item._id} {...item} />
+            // <Product key={item._id} {...item} />
+            {search}
           ))}
         </div>
       )}

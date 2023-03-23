@@ -51,7 +51,7 @@ function Home() {
              </div>
             <div className='container'>
             <SearchContext.Provider value={{search, setSearch,setShowSearch}}>
-            {!showSearch ? (<SearchElement/> ) : (
+            {showSearch ? (<SearchElement/> ) : (
                  <div className="col-lg-12">
 
                
