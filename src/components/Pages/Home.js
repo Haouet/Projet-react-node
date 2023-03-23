@@ -43,11 +43,10 @@ function Home() {
         <>
             <div className='hero'>
                 <div className='container'>
-                <Categorie />
+                
                     <div className='row'>
-                        
-                      <div className='col-lg-9'>   
-                       
+                    <Categorie />
+                      <div className='col-lg-6'>                       
                         <div className='hero__search'>
                              <div className='hero__search__form'>
                                         <form onSubmit={handleSubmit}>
