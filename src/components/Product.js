@@ -40,9 +40,9 @@ export default function Product({ _id, title, price, description, images
 
             <div className="card-body bg-light text-center">
                 <div className="mb-2">
-                    <h6 className="font-weight-semibold mb-2">
+                    <h5 className="font-weight-semibold mb-2">
                         <Link to={`/details/${_id}`} >{title}</Link>
-                    </h6>
+                    </h5>
 
                     <p>{description}</p>
                 </div>
