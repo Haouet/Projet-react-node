@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState, useEffect, useContext  } from "react";
 const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
 function SearchElement() {
-  // const {search} = useContext(SearchContext);
+  const {search} = useContext(SearchContext);
   const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
