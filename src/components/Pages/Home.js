@@ -3,7 +3,8 @@ import Categorie from '../Categorie';
 import Slider from './Elements/Slider';
 import Banner from './Elements/Banner';
 import ProductFeatured from './ProductFeatured';
-
+import '../Search.css';
+import Info from '../Info';
 import Product from './Product';
 import axios from 'axios';
 
