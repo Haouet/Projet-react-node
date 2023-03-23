@@ -34,7 +34,8 @@ function Home() {
 
     }, [search]);
 
-    const showSearchClick = () => {  
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
          setShowSearch(true); 
       
     }
@@ -49,11 +50,11 @@ function Home() {
                         <div className='hero__search'>
                                     
                                     <div className='hero__search__form'>
-                                        <form>
+                                        <form onSubmit={handleSubmit}>
                                             <input type="text" label="search"  placeholder="What do yo u need ?" onChange={(e) => {
                                                 setSearch(e.target.value) 
                                             }} />
-                                            <button type="submit" className='site-btn' onClick={showSearchClick}>SEARCH</button>
+                                            <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
 
                                     </div>
