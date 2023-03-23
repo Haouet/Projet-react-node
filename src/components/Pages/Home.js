@@ -13,7 +13,7 @@ function Home() {
      const [showSearch, setShowSearch] = useState(false);
     const [search, setSearch] = useState("");
     console.log(showSearch);
-    console.log(search);
+   
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -34,10 +34,10 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-         setShowSearch(true); 
-        
+         setShowSearch(true);         
       
     }
+    console.log(search);
     return (
         <>
             <div className='hero'>
@@ -75,7 +75,7 @@ function Home() {
                 (data.length > 0) ? (    
      
                     <div className='wrapper'>
-                      {data?.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
+                      {data.filter((product) => product.title.toLowerCase().includes(search)).map(item => (
                         <Product key={item._id} {...item} />
                       ))}
                     </div>
