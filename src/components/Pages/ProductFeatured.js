@@ -1,7 +1,8 @@
-import React, { useState, useEffect  } from 'react'
-import Product from '../Product'
-const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
+import React, { useState, useEffect  } from 'react';
+import Product from '../Product';
 import axios from 'axios';
+const baseURL = "https://backend-ecommerce-exw7.onrender.com/api/product";
+
 function ProductFeatured() {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);

@@ -21,12 +21,12 @@ export default function Search() {
 
             <div className='hero__search'>
                 <div className='hero__search__form'>
-                    <form>
+                    <div className='form' >
                         <input type="text" label="search"  placeholder="What do yo u need ?" onChange={(e) => {
                             setSearch(e.target.value) 
                         }} />
                         <button type="submit" className='site-btn' onClick={showSearchClick}>SEARCH</button>
-                    </form>
+                    </div>
 
                 </div>
                 <Info />
