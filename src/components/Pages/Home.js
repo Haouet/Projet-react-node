@@ -17,7 +17,16 @@ function Home() {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
-      const fetchData = async () => {
+        fetchData();
+    }, []);
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+         setShowSearch(true); 
+         fetchData();        
+        
+    }
+    const fetchData = async () => {
         setLoading(true);
         try {
             const { data: response } = await axios.get(baseURL);
@@ -30,13 +39,6 @@ function Home() {
         setLoading(false);
     }
 
-    }, []);
-
-    const handleSubmit = (e) => {
-        e.preventDefault(); 
-         setShowSearch(true);         
-        search.current.value = '';
-    }
     console.log(data);
     return (
         <>
@@ -45,10 +47,9 @@ function Home() {
                     
                     <div className='row'>
                         <Categorie />
-                        <div className='col-lg-9'>   
+                      <div className='col-lg-9'>   
                         <div className='hero__search'>
-                                    
-                                    <div className='hero__search__form'>
+                             <div className='hero__search__form'>
                                         <form onSubmit={handleSubmit}>
                                             <input type="text" label="search"  value={search}  placeholder="What do yo u need ?" onChange={(e) => {
                                                 setSearch(e.target.value) 
@@ -56,10 +57,9 @@ function Home() {
                                             <button type="submit" className='site-btn' >SEARCH</button>
                                         </form>
 
-                                    </div>
-                                    
-                                    <Info />
-                                </div>  
+                             </div>
+                               <Info />
+                         </div>  
                         <br/>                      
                         <Slider />
                         </div>
