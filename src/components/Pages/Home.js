@@ -46,6 +46,7 @@ function Home() {
 
                     <div className='row'>
                         <Categorie />
+                        <div className='col-lg-9'>
                         <div className='col-lg-6'>
                             <div className='hero__search'>
                                 <div className='hero__search__form'>
@@ -61,9 +62,8 @@ function Home() {
                             </div>
                             <div className='col-lg-3'>
                                 <Info />
-                            </div>
+                            </div>                      
                        
-                        <div className='col-lg-9'>
                             <Slider />
                         </div>
 
