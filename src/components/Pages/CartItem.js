@@ -19,14 +19,14 @@ function CartItem({ _id, title, price,Qts}) {
         e.stopPropagation();
        setTotalQuantity(totalQuantity + 1);
 
-        dispatch(incrementQuantity(id))
+        dispatch(incrementQuantity(_id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
         if (totalQuantity >= 1) {
         setTotalQuantity(totalQuantity - 1);
         
-        dispatch(decrementQuantity(id))
+        dispatch(decrementQuantity(_id))
     }else{
         setTotalQuantity(totalQuantity);
     }
