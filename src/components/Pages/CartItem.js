@@ -33,7 +33,7 @@ function CartItem({ _id, title, price,Qts}) {
     
     }
     const Remove = () => {
-        dispatch(removeItem(id))
+        dispatch(removeItem(_id))
     };
 
 
