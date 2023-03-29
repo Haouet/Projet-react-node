@@ -13,7 +13,7 @@ name : "Card",
             // state.value = action.payload;
             // state.Card.push({ ...state.value, Qts: 1 });
             // console.log(state.Card);
-            const itemInCart = state.Card.find((item) => item._id === action.payload._id);
+            const itemInCart = state.Card.find((item) => item.id === action.payload.id);
             if (itemInCart) {
               itemInCart.Qts++;
             } else {
@@ -22,11 +22,11 @@ name : "Card",
             }
           },
           incrementQuantity: (state, action) => {
-            const items = state.Card.find((item) => item._id === action.payload);
+            const items = state.Card.find((item) => item.id === action.payload);
             items.Qts++;
           },
           decrementQuantity: (state, action) => {
-            const items = state.Card.find((item) => item._id === action.payload);
+            const items = state.Card.find((item) => item.id === action.payload);
             if (items.Qts === 1) {
               items.Qts = 1
             } else {
@@ -35,7 +35,7 @@ name : "Card",
           },        
           removeItem: (state, action) => {       
               
-            state.Card= state.Card.filter((item) => item._id !== action.payload);
+            state.Card= state.Card.filter((item) => item.id !== action.payload);
             
             
            

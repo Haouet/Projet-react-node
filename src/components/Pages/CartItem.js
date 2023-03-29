@@ -2,7 +2,7 @@ import { removeItem, decrementQuantity, incrementQuantity } from '../../features
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import formatCurrency from '../formatCurrency';
-function CartItem({ _id, title, price,Qts}) {
+function CartItem({ id, title, price,Qts}) {
     const cart = useSelector((state) => state.Card.Card);
 
     
@@ -19,21 +19,21 @@ function CartItem({ _id, title, price,Qts}) {
         e.stopPropagation();
        setTotalQuantity(totalQuantity + 1);
 
-        dispatch(incrementQuantity(_id))
+        dispatch(incrementQuantity(id))
     }
     const onClickDecrease = (e) => {
         e.stopPropagation();
         if (totalQuantity >= 1) {
         setTotalQuantity(totalQuantity - 1);
         
-        dispatch(decrementQuantity(_id))
+        dispatch(decrementQuantity(id))
     }else{
         setTotalQuantity(totalQuantity);
     }
     
     }
     const Remove = () => {
-        dispatch(removeItem(_id))
+        dispatch(removeItem(id))
     };
 
 
@@ -46,7 +46,7 @@ function CartItem({ _id, title, price,Qts}) {
         
             <table>
                 <tbody>
-                    <tr key={_id}>
+                    <tr key={id}>
                         <td className="shoping__cart__item">
                             <h5 >{title}</h5>
                         </td>
