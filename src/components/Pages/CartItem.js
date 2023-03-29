@@ -46,7 +46,7 @@ function CartItem({ id, title, price,Qts}) {
         
             <table>
                 <tbody>
-                    <tr>
+                    <tr key={id}>
                         <td className="shoping__cart__item">
                             <h5 >{title}</h5>
                         </td>
