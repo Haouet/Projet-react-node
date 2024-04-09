@@ -12,7 +12,7 @@ export default function Product({ _id, title, price, description, images
 
     const handleCard = (e) => {
         e.preventDefault();
-        localStorage.setItem('QTS', Qts)
+        
         dispatch(addCard(
             {
                 id: _id,
